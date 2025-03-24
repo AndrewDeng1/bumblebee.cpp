@@ -1,7 +1,7 @@
 // test, clean up includes
 
-#ifndef DECODER_H
-#define DECODER_H
+#ifndef LINEAR_LAYER_H
+#define LINEAR_LAYER_H
 
 #include <vector>
 #include <iostream>
@@ -12,19 +12,21 @@
 
 using namespace std;
 
-class Decoder {
+class Linear {
     
     public:
 
         // Declare signature of constructor methods
-        Decoder(int d_model, int d_ff, int h, int d_k, int d_v, int N);
-        forward(const Matrix& X, const Matrix& encoder_out) const;
-
+        Linear(int d_model, int V);
+        Matrix forward(const Matrix& X) const;
+    
     private:
 
-        int N;
         int d_model;
-        vector<Decoder_Layer> decoder_layers;
+        int V;
+
+        Matrix W;
+        vector<float>b;
 };
 
-#endif // DECODER_H
+#endif // LINEAR_LAYER_H

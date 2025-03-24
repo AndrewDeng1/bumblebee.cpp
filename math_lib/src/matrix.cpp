@@ -49,6 +49,21 @@ Matrix Matrix::operator+(const Matrix& matrix) const {
     return temp;
 }
 
+// check
+Matrix Matrix::operator+(const vector<float>& v) const {
+
+    assert(numCols()==v.size()&&"Matrix must have same number of columns as vector has elements/columns");
+
+    Matrix temp = Matrix(numRows(), numCols());
+    for(int i=0; i<numRows(); i++){
+        for(int j=0; j<numCols(); j++){
+            temp[i][j]=m[i][j]+v[j];
+        }
+    }
+
+    return temp;
+}
+
 Matrix Matrix::operator-(const Matrix& matrix) const {
 
     assert(numRows()==matrix.numRows()&&"Matrices must have same number of rows.");
@@ -114,6 +129,21 @@ Matrix operator*(float k, const Matrix& m) {
     for(size_t i=0; i<m.numRows(); i++){
         for(size_t j=0; j<m.numCols(); j++){
             temp[i][j]=m[i][j]*k;
+        }
+    }
+
+    return temp;
+}
+
+// test
+Matrix operator+(const vector<float>& v, const Matrix& m) {
+
+    assert(numCols()==v.size()&&"Matrix must have same number of columns as vector has elements/columns");
+
+    Matrix temp = Matrix(m.numRows(), m.numCols());
+    for(size_t i=0; i<m.numRows(); i++){
+        for(size_t j=0; j<m.numCols(); j++){
+            temp[i][j]=m[i][j]+v[j];
         }
     }
 

@@ -31,6 +31,8 @@ class Matrix {
         // Addition
         Matrix operator+(const Matrix& matrix) const;
 
+        Matrix operator+(const vector<float>& v) const;
+
         // Subtraction
         Matrix operator-(const Matrix& matrix) const;
 
@@ -87,5 +89,7 @@ class Matrix {
 };
 
 Matrix operator*(float k, const Matrix& m);
+
+Matrix operator+(const vector<float>&v, const Matrix& m);
 
 #endif // MATRIX_H

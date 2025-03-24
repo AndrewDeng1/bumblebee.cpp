@@ -19,6 +19,16 @@ float average_error(const Matrix& y_true, const Matrix& y_pred);
 float squared_euclidean_distance(const vector<float>& v1, const vector<float> v2);
 float squared_euclidean_distance(const Matrix& v1, const Matrix& v2);
 
+Matrix normalize(const Matrix& m, const int axis);  // test
+
+Matrix softmax(const Matrix& m, const int axis);  // test
+
+Matrix positional_encoder(const Matrix input_embeddings, int d_model);  // test
+
+Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, bool masked);  // test
+
+Matrix max(float n, const Matrix& m);  // test
+Matrix max(const Matrix& m, float n);  // test
 }
 
 

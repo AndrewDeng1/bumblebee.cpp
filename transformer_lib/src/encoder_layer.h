@@ -1,7 +1,7 @@
 // test, clean up includes
 
-#ifndef ENCODER_H
-#define ENCODER_H
+#ifndef ENCODER_LAYER_H
+#define ENCODER_LAYER_H
 
 #include <vector>
 #include <iostream>
@@ -12,14 +12,14 @@
 
 using namespace std;
 
-class Encoder {
+class EncoderLayer {
     
     public:
 
         // Declare signature of constructor methods
-        Encoder(int d_model, int d_ff, int h, int d_k, int d_v, int N);
-        forward(const Matrix& X) const;
-
+        EncoderLayer(int d_model, int d_ff, int h, int d_k, int d_v);
+        Matrix forward(const Matrix& X) const;
+    
     private:
 
         int d_model;
@@ -27,9 +27,10 @@ class Encoder {
         int h;
         int d_k;
         int d_v;
-        int N;
         
-        vector<Encoder_Layer> encoder_layers;
+        MultiHeadAttention multi_head_attention;
+        FeedForward feed_forward;
+        Matrix W_Q, W_K, W_V;
 };
 
-#endif // ENCODER_H
+#endif // ENCODER_LAYER_H
