@@ -63,7 +63,7 @@ float std_dev(const vector<float>& v){
     return sqrt(((float)1.0/v.size())*sm);
 }
 
-Matrix normalize(const Matrix& m, const int axis=0){
+Matrix normalize(const Matrix& m, const int axis){
     
     Matrix ret = Matrix(m.numRows(), m.numCols());
 
@@ -94,7 +94,7 @@ Matrix normalize(const Matrix& m, const int axis=0){
     return ret;
 }
 
-Matrix softmax(const Matrix& m, const int axis=0){
+Matrix softmax(const Matrix& m, const int axis){
 
     Matrix ret = Matrix(m.numRows(), m.numCols());
 
@@ -144,7 +144,7 @@ Matrix positional_encoder(const Matrix input_embeddings, int d_model) {
     return ret;
 }
 
-Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, int d_k, bool masked=false){
+Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, int d_k, bool masked){
     
     assert(Q.numCols()==K.numCols()&&K.numRows()==K.numCols()&&"Attention operation requires Q.numCols()==K.numCols()&&K.numRows()==K.numCols()");
     
