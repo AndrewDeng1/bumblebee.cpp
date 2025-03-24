@@ -1,6 +1,4 @@
 #include "matrix.h"
-#include <stdlib.h>
-#include <time.h>
 
 Matrix::Matrix(): m(vector<vector<float>>(0, vector<float>(0, 0))){}
 
@@ -135,10 +133,18 @@ Matrix operator*(float k, const Matrix& m) {
     return temp;
 }
 
+Matrix Matrix::operator/(float k) const {
+    return (1.0/k)*m;
+}
+
+Matrix operator/(float k, const Matrix& m) {
+    return (1.0/k)*m;
+}
+
 // test
 Matrix operator+(const vector<float>& v, const Matrix& m) {
 
-    assert(numCols()==v.size()&&"Matrix must have same number of columns as vector has elements/columns");
+    assert(m.numCols()==v.size()&&"Matrix must have same number of columns as vector has elements/columns");
 
     Matrix temp = Matrix(m.numRows(), m.numCols());
     for(size_t i=0; i<m.numRows(); i++){

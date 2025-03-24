@@ -3,6 +3,7 @@
 
 // Include all headers in "math_lib" folder
 #include "matrix.h"
+#include <cmath>
 
 namespace math_lib {
 

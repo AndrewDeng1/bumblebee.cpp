@@ -1,5 +1,4 @@
 #include "math_lib.h"
-#include <cmath> // For std::exp
 
 using namespace std;
 
@@ -47,15 +46,15 @@ float squared_euclidean_distance(const Matrix& v1, const Matrix& v2){
     return sm;
 }
 
-float mean(vector<float>& v){
+float mean(const vector<float>& v){
     float sm=0.0;
     for(int i=0; i<v.size(); i++){
         sm+=v[i];
     }
-    return mean/v.size();
+    return sm/((float)v.size());
 }
 
-float std_dev(vector<float>& v){
+float std_dev(const vector<float>& v){
     float mu=mean(v);
     float sm=0.0;
     for(int i=0; i<v.size(); i++){
@@ -145,7 +144,7 @@ Matrix positional_encoder(const Matrix input_embeddings, int d_model) {
     return ret;
 }
 
-Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, bool masked=false){
+Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, int d_k, bool masked=false){
     
     assert(Q.numCols()==K.numCols()&&K.numRows()==K.numCols()&&"Attention operation requires Q.numCols()==K.numCols()&&K.numRows()==K.numCols()");
     
@@ -174,7 +173,7 @@ Matrix max(float n, const Matrix& m){
 
     for(int i=0; i<m.numRows(); i++){
         for(int j=0; j<m.numCols(); j++){
-            ret[i][j]=max(n, m);  // make sure overloads properly
+            ret[i][j]=std::max(n, m[i][j]);  // make sure overloads properly
         }
     }
 

@@ -44,6 +44,7 @@ class Matrix {
 
         // Scalar multiply
         Matrix operator*(float n) const;
+        Matrix operator/(float n) const;
 
         // Vector multiply
         vector<float> operator*(const vector<float>& vec) const;
@@ -89,6 +90,7 @@ class Matrix {
 };
 
 Matrix operator*(float k, const Matrix& m);
+Matrix operator/(float k, const Matrix& m);
 
 Matrix operator+(const vector<float>&v, const Matrix& m);
 
