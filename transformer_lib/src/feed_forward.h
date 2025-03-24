@@ -5,10 +5,8 @@
 
 #include <vector>
 #include <iostream>
-#include <stdexcept>
-#include <cmath>
-#include <algorithm>
 #include <cassert>
+#include "../../math_lib/src/math_lib.h"
 
 using namespace std;
 

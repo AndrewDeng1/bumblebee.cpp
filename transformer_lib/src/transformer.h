@@ -5,10 +5,11 @@
 
 #include <vector>
 #include <iostream>
-#include <stdexcept>
-#include <cmath>
-#include <algorithm>
 #include <cassert>
+#include "../../math_lib/src/math_lib.h"
+#include "encoder.h"
+#include "decoder.h"
+#include "linear.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ class Transformer {
 
         // Declare signature of constructor methods
         Transformer(int d_model, int V, int d_ff, int h, int d_k, int d_v, int N);
-        forward(const vector<string>& inputs, const vector<string>& outputs) const;
+        Matrix forward(const vector<string>& inputs, const vector<string>& outputs) const;
 
     private:
 

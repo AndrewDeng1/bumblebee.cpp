@@ -1,28 +1,33 @@
 #include "decoder_layer.h"
 
-DecoderLayer::DecoderLayer(int d_model, int d_ff, int h, int d_k, int d_v) {
-    this->d_model=d_model;
-    this->d_ff=d_ff;
-    this->h=h;
-    this->d_k=d_k;
-    this->d_v=d_v;
-
-    this->multi_head_attention = MultiHeadAttention(d_model, h, d_k, d_v);
-    this->masked_multi_head_attention = MultiHeadAttention(d_model, h, d_k, d_v, true);
-    this->feed_forward = FeedForward(d_model, d_ff);
-    this->W_Q_1 = Matrix(d_model, d_model);
-    this->W_K_1 = Matrix(d_model, d_model);
-    this->W_V_1 = Matrix(d_model, d_model);
-    this->W_Q_2 = Matrix(d_model, d_model);
-    this->W_K_2 = Matrix(d_model, d_model);
-    this->W_V_2 = Matrix(d_model, d_model);
+DecoderLayer::DecoderLayer(int d_model, int d_ff, int h, int d_k, int d_v)
+    : d_model(d_model),
+      d_ff(d_ff),
+      h(h),
+      d_k(d_k),
+      d_v(d_v),
+      multi_head_attention(d_model, h, d_k, d_v),
+      masked_multi_head_attention(d_model, h, d_k, d_v, true),
+      feed_forward(d_model, d_ff),
+      W_Q_1(d_model, d_model),
+      W_K_1(d_model, d_model),
+      W_V_1(d_model, d_model),
+      W_Q_2(d_model, d_model),
+      W_K_2(d_model, d_model),
+      W_V_2(d_model, d_model) {
+    // Empty body
 }
 
 Matrix DecoderLayer::forward(const Matrix& X, const Matrix& encoder_out) const {
-    Matrix Q_1=X*W_Q;
-    Matrix K_1=X*W_K;
-    Matrix V_1=X*W_V;
-    Matrix temp_1=add_and_norm(X, multi_head_attention.forward(Q, K, V));
-    Matrix temp_2=add_and_norm(temp_1, multi_head_attention.forward(Q, encoder_out, encoder_out));
-    return add_and_norm(temp, feed_forward.forward(temp_2));
+    Matrix Q_1=X*W_Q_1;
+    Matrix K_1=X*W_K_1;
+    Matrix V_1=X*W_V_1;
+    Matrix temp_1=math_lib::add_and_norm(X, multi_head_attention.forward(Q_1, K_1, V_1));
+
+    Matrix Q_2=temp_1*W_Q_2;
+    Matrix K_2=encoder_out*W_K_2;
+    Matrix V_2=encoder_out*W_V_2;
+
+    Matrix temp_2=math_lib::add_and_norm(temp_1, multi_head_attention.forward(Q_2, K_2, V_2));
+    return math_lib::add_and_norm(temp_2, feed_forward.forward(temp_2));
 }

@@ -5,10 +5,9 @@
 
 #include <vector>
 #include <iostream>
-#include <stdexcept>
-#include <cmath>
-#include <algorithm>
 #include <cassert>
+#include "../../math_lib/src/math_lib.h"
+#include "decoder_layer.h"
 
 using namespace std;
 
@@ -18,13 +17,13 @@ class Decoder {
 
         // Declare signature of constructor methods
         Decoder(int d_model, int d_ff, int h, int d_k, int d_v, int N);
-        forward(const Matrix& X, const Matrix& encoder_out) const;
+        Matrix forward(const Matrix& X, const Matrix& encoder_out) const;
 
     private:
 
         int N;
         int d_model;
-        vector<Decoder_Layer> decoder_layers;
+        vector<DecoderLayer> decoder_layers;
 };
 
 #endif // DECODER_H

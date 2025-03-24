@@ -5,10 +5,11 @@
 
 #include <vector>
 #include <iostream>
-#include <stdexcept>
-#include <cmath>
-#include <algorithm>
 #include <cassert>
+#include "../../math_lib/src/math_lib.h"
+#include "decoder_layer.h"
+#include "multi_head_attention.h"
+#include "feed_forward.h"
 
 using namespace std;
 

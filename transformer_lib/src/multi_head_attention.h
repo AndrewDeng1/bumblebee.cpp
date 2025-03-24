@@ -5,10 +5,9 @@
 
 #include <vector>
 #include <iostream>
-#include <stdexcept>
-#include <cmath>
-#include <algorithm>
 #include <cassert>
+#include "../../math_lib/src/math_lib.h"
+#include "head.h"
 
 using namespace std;
 
@@ -17,8 +16,8 @@ class MultiHeadAttention {
     public:
 
         // Declare signature of constructor methods
-        MultiHeadAttention(int d_model, int h, bool masked);
-        Matrix forward(const Matrix& X) const;
+        MultiHeadAttention(int d_model, int h, int d_k, int d_v, bool masked=false);
+        Matrix forward(Matrix& Q, Matrix& K, Matrix& V) const;
     
     private:
 
