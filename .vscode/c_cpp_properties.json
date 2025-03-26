@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/libs/math_lib/include",
+                "${workspaceFolder}/libs/transformer_lib/include",
+                "${workspaceFolder}/build/_deps/googletest-src/googletest/include",
+                "C:/msys64/mingw64/include/**"
+            ],
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+}

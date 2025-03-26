@@ -1,0 +1,7 @@
+- Forward pass:
+    - Unit testing
+    - Initialization of weights/biases
+
+
+cmake -S . -B build -DBUILD_TESTS=ON
+cmake --build build --config Release

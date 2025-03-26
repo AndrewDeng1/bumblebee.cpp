@@ -1,0 +1,10 @@
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/CMakeFiles/INSTALL.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/math_lib/CMakeFiles/math_lib.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/math_lib/CMakeFiles/INSTALL.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib/CMakeFiles/transformer_lib.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib/CMakeFiles/INSTALL.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_matrix.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_decoder.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/INSTALL.dir
