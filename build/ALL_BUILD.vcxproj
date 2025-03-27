@@ -181,6 +181,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{A1760462-56F9-3F72-8E40-7BDEE8BA257C}</Project>
       <Name>test_decoder</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\tests\test_math_lib.vcxproj">
+      <Project>{345A9A28-1B9B-3ED7-80F7-83E519B94DB0}</Project>
+      <Name>test_math_lib</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\tests\test_matrix.vcxproj">
       <Project>{C5F8429B-CEAD-3A7E-96CC-22150CAC5E1D}</Project>
       <Name>test_matrix</Name>

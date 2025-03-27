@@ -99,21 +99,27 @@ Matrix softmax(const Matrix& m, const int axis){
     Matrix ret = Matrix(m.numRows(), m.numCols());
 
     // Row-wise softmax
-    if(axis==0){
-
-        for(int i=0; i<m.numRows(); i++){
-            
-            float sm=0.0;
-            
-            for(int j=0; j<m.numCols(); j++){
-                sm+=exp(m[i][j]);
+    if (axis == 0) { // Row-wise softmax (each row sums to 1)
+        for (int i = 0; i < m.numRows(); i++) {
+            // Find max for numerical stability
+            float max_val = m[i][0];
+            for (int j = 1; j < m.numCols(); j++) {
+                if (m[i][j] > max_val) max_val = m[i][j];
             }
-
-            for(int j=0; j<m.numCols(); j++){
-                ret[i][j]=exp(m[i][j])/sm;
+            
+            // Compute exponentials and sum
+            float sum = 0.0f;
+            for (int j = 0; j < m.numCols(); j++) {
+                ret[i][j] = exp(m[i][j] - max_val); // Numerical stability
+                sum += ret[i][j];
+            }
+            
+            // Normalize
+            for (int j = 0; j < m.numCols(); j++) {
+                ret[i][j] /= sum;
             }
         }
-    } 
+    }
     
     // Column-wise
     else if(axis==1){ 
@@ -144,23 +150,23 @@ Matrix positional_encoder(const Matrix input_embeddings, int d_model) {
     return ret;
 }
 
-Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, int d_k, bool masked){
-    
-    assert(Q.numCols()==K.numCols()&&K.numRows()==K.numCols()&&"Attention operation requires Q.numCols()==K.numCols()&&K.numRows()==K.numCols()");
-    
-    Matrix scores = Q*K.T()/sqrt(d_k);
-    
-    if(masked){
-        for(int i=0; i<scores.numRows(); i++){
-            for(int j=0; j<scores.numCols(); j++){
-                if(i<j){  // Future tokens are masked
-                    scores[i][j]=-std::numeric_limits<float>::infinity();
+Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, int d_k, bool masked) {
+
+    assert(Q.numCols() == K.numCols() && "Attention operation requires Q.numCols() == K.numCols() (key dimension)");
+
+    Matrix scores = Q * K.T() / sqrt(d_k);
+
+    if (masked) {
+        for (int i = 0; i < scores.numRows(); ++i) {
+            for (int j = 0; j < scores.numCols(); ++j) {
+                if (i < j) { // Future tokens are masked
+                    scores[i][j] = -std::numeric_limits<float>::infinity();
                 }
             }
         }
     }
-    
-    return softmax(scores)*V;
+
+    return softmax(scores) * V;
 }
 
 Matrix add_and_norm(const Matrix& A, const Matrix& B){

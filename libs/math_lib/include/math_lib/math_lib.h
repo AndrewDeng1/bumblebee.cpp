@@ -20,6 +20,10 @@ float average_error(const Matrix& y_true, const Matrix& y_pred);
 float squared_euclidean_distance(const vector<float>& v1, const vector<float> v2);
 float squared_euclidean_distance(const Matrix& v1, const Matrix& v2);
 
+float mean(const vector<float>& v);
+
+float std_dev(const vector<float>& v);
+
 Matrix normalize(const Matrix& m, const int axis=0);  // test
 
 Matrix softmax(const Matrix& m, const int axis=0);  // test

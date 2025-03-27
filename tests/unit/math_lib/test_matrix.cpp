@@ -1,8 +1,6 @@
-#define ll long long
-using namespace std;
-
 #include <math_lib/matrix.h>
 
+using namespace std;
 
 void test_init(){
     Matrix m=Matrix();
