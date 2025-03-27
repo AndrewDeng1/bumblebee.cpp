@@ -93,6 +93,20 @@ Matrix Matrix::operator*(const Matrix& matrix) const {
     return temp;
 }
 
+bool Matrix::operator==(const Matrix& B) const {
+    assert(numRows()==B.numRows()&&numCols()==B.numCols());
+    
+    for(int i=0; i<numRows(); i++){
+        for(int j=0; j<numCols(); j++){
+            if(m[i][j]!=B[i][j]){
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
 float Matrix::dot(const Matrix& matrix) const {
 
     assert(numCols()==matrix.numRows()&&numRows()==1&&matrix.numCols()==1&&"Dot product only exists for two vector-shaped matrices of shape 1 x n and n x 1, respectively.");
@@ -134,10 +148,6 @@ Matrix operator*(float k, const Matrix& m) {
 }
 
 Matrix Matrix::operator/(float k) const {
-    return (1.0/k)*m;
-}
-
-Matrix operator/(float k, const Matrix& m) {
     return (1.0/k)*m;
 }
 

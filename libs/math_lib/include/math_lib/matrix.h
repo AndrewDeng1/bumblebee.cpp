@@ -39,6 +39,9 @@ class Matrix {
         // Matrix multiplication
         Matrix operator*(const Matrix& matrix) const;
 
+        // Equality of two matrices
+        bool operator==(const Matrix& matrix) const;
+
         // Dot product on two vector-shaped matrices, of shape 1 x n and n x 1, respectively
         float dot(const Matrix& matrix) const;
 
@@ -90,7 +93,6 @@ class Matrix {
 };
 
 Matrix operator*(float k, const Matrix& m);
-Matrix operator/(float k, const Matrix& m);
 
 Matrix operator+(const vector<float>&v, const Matrix& m);
 

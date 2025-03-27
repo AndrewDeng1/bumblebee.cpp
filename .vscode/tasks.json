@@ -4,7 +4,7 @@
 	  {
 		"label": "Build Project",
 		"type": "shell",
-		"command": "cmake --build build --config Release",
+		"command": "./build.bat",
 		"group": {
 		  "kind": "build",
 		  "isDefault": true
@@ -14,9 +14,9 @@
 	  {
 		"label": "Run Active C++ File",
 		"type": "shell",
-		"command": "./build/tests/Release/${fileBasenameNoExtension}",
+		"command": "./build/tests/Debug/${fileBasenameNoExtension}",
 		"windows": {
-		  "command": ".\\build\\tests\\Release\\${fileBasenameNoExtension}.exe"
+		  "command": ".\\build\\tests\\Debug\\${fileBasenameNoExtension}.exe"
 		}
 	  }
 	]
