@@ -1,0 +1,10 @@
+^C:\USERS\ANDAR\WATERLOO\SIDEPROJECTS\TRANSFORMER.CPP\BUILD\CMAKEFILES\4B5948D31FB606BE417CC9991759C984\GENERATE.STAMP.RULE
+setlocal
+C:\Users\andar\Downloads\cmake-3.30.0-windows-x86_64\cmake-3.30.0-windows-x86_64\bin\cmake.exe -SC:/Users/andar/Waterloo/SideProjects/transformer.cpp -BC:/Users/andar/Waterloo/SideProjects/transformer.cpp/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/TransformerProject.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

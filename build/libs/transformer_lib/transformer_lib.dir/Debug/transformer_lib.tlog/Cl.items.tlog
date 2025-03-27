@@ -1,0 +1,9 @@
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\decoder.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\decoder.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\decoder_layer.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\decoder_layer.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\encoder.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\encoder.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\encoder_layer.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\encoder_layer.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\feed_forward.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\feed_forward.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\head.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\head.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\linear.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\linear.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\multi_head_attention.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\multi_head_attention.obj
+C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\transformer_lib\src\transformer.cpp;C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\transformer_lib\transformer_lib.dir\Debug\transformer.obj
