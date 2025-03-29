@@ -5,9 +5,9 @@ FeedForward::FeedForward(int d_model, int d_ff)
     : d_model(d_model),
       d_ff(d_ff),
       W_1(d_model, d_ff),
-      W_2(d_model, d_ff),
+      W_2(d_ff, d_model),
       b_1(d_ff),
-      b_2(d_ff) {
+      b_2(d_model) {
     // Empty body
 }
 

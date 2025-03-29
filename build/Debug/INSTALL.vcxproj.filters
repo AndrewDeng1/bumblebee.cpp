@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\Debug\CMakeFiles\9ead20c1b0fcbc15ab1ba85248ca17f5\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{EC964964-F63E-39A9-81A4-F42BF29B4C02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

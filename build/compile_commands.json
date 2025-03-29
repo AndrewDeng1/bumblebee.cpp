@@ -1,0 +1,134 @@
+[
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/math_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/math_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\math_lib.dir\\src\\math_lib.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\math_lib\\src\\math_lib.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/src/math_lib.cpp",
+  "output": "libs/math_lib/CMakeFiles/math_lib.dir/src/math_lib.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/math_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/math_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\math_lib.dir\\src\\matrix.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\math_lib\\src\\matrix.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/src/matrix.cpp",
+  "output": "libs/math_lib/CMakeFiles/math_lib.dir/src/matrix.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\decoder.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\decoder.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/decoder.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/decoder.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\decoder_layer.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\decoder_layer.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/decoder_layer.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/decoder_layer.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\encoder.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\encoder.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/encoder.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/encoder.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\encoder_layer.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\encoder_layer.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/encoder_layer.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/encoder_layer.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\feed_forward.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\feed_forward.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/feed_forward.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/feed_forward.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\head.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\head.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/head.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/head.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\linear.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\linear.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/linear.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/linear.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\multi_head_attention.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\multi_head_attention.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/multi_head_attention.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/multi_head_attention.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\transformer.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\transformer.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/transformer.cpp",
+  "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/transformer.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_math_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_math_lib.dir\\unit\\math_lib\\test_math_lib.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\math_lib\\test_math_lib.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/math_lib/test_math_lib.cpp",
+  "output": "tests/CMakeFiles/test_math_lib.dir/unit/math_lib/test_math_lib.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_matrix.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_matrix.dir\\unit\\math_lib\\test_matrix.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\math_lib\\test_matrix.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/math_lib/test_matrix.cpp",
+  "output": "tests/CMakeFiles/test_matrix.dir/unit/math_lib/test_matrix.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_decoder.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_decoder.dir\\unit\\transformer_lib\\test_decoder.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_decoder.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_decoder.cpp",
+  "output": "tests/CMakeFiles/test_decoder.dir/unit/transformer_lib/test_decoder.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_decoder_layer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_decoder_layer.dir\\unit\\transformer_lib\\test_decoder_layer.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_decoder_layer.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_decoder_layer.cpp",
+  "output": "tests/CMakeFiles/test_decoder_layer.dir/unit/transformer_lib/test_decoder_layer.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_encoder.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_encoder.dir\\unit\\transformer_lib\\test_encoder.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_encoder.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_encoder.cpp",
+  "output": "tests/CMakeFiles/test_encoder.dir/unit/transformer_lib/test_encoder.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_encoder_layer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_encoder_layer.dir\\unit\\transformer_lib\\test_encoder_layer.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_encoder_layer.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_encoder_layer.cpp",
+  "output": "tests/CMakeFiles/test_encoder_layer.dir/unit/transformer_lib/test_encoder_layer.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_feed_forward.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_feed_forward.dir\\unit\\transformer_lib\\test_feed_forward.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_feed_forward.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_feed_forward.cpp",
+  "output": "tests/CMakeFiles/test_feed_forward.dir/unit/transformer_lib/test_feed_forward.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_head.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_head.dir\\unit\\transformer_lib\\test_head.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_head.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_head.cpp",
+  "output": "tests/CMakeFiles/test_head.dir/unit/transformer_lib/test_head.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_linear.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_linear.dir\\unit\\transformer_lib\\test_linear.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_linear.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_linear.cpp",
+  "output": "tests/CMakeFiles/test_linear.dir/unit/transformer_lib/test_linear.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_multi_head_attention.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_multi_head_attention.dir\\unit\\transformer_lib\\test_multi_head_attention.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_multi_head_attention.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_multi_head_attention.cpp",
+  "output": "tests/CMakeFiles/test_multi_head_attention.dir/unit/transformer_lib/test_multi_head_attention.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_transformer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_transformer.dir\\unit\\transformer_lib\\test_transformer.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\transformer_lib\\test_transformer.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/transformer_lib/test_transformer.cpp",
+  "output": "tests/CMakeFiles/test_transformer.dir/unit/transformer_lib/test_transformer.cpp.obj"
+}
+]

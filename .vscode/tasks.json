@@ -14,10 +14,18 @@
 	  {
 		"label": "Run Active C++ File",
 		"type": "shell",
-		"command": "./build/tests/Debug/${fileBasenameNoExtension}",
+		"command": "./build/tests/${fileBasenameNoExtension}",
 		"windows": {
-		  "command": ".\\build\\tests\\Debug\\${fileBasenameNoExtension}.exe"
+		  "command": ".\\build\\tests\\${fileBasenameNoExtension}.exe"
 		}
 	  }
+	//   {
+	// 	"label": "Run Active C++ File",
+	// 	"type": "shell",
+	// 	"command": "./build/tests/Debug/${fileBasenameNoExtension}",
+	// 	"windows": {
+	// 	  "command": ".\\build\\tests\\Debug\\${fileBasenameNoExtension}.exe"
+	// 	}
+	//   }
 	]
   }
