@@ -4,6 +4,7 @@
 // Include all headers in "math_lib" folder
 #include <math_lib/matrix.h>
 #include <cmath>
+#include <random>
 
 namespace math_lib {
 
@@ -24,18 +25,20 @@ float mean(const vector<float>& v);
 
 float std_dev(const vector<float>& v);
 
-Matrix normalize(const Matrix& m, const int axis=0);  // test
+Matrix normalize(const Matrix& m, const int axis=0);
 
-Matrix softmax(const Matrix& m, const int axis=0);  // test
+Matrix softmax(const Matrix& m, const int axis=0);
 
-Matrix positional_encoder(const Matrix input_embeddings, int d_model);  // test
+Matrix positional_encoder(const Matrix input_embeddings, int d_model);
 
 Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, int d_k, bool masked=false);  // test
 
 Matrix add_and_norm(const Matrix& A, const Matrix& B);
 
-Matrix max(float n, const Matrix& m);  // test
-Matrix max(const Matrix& m, float n);  // test
+Matrix max(float n, const Matrix& m);
+Matrix max(const Matrix& m, float n);
+
+void xavier_uniform_initialization(Matrix& m, int d_in, int d_out);
 }
 
 

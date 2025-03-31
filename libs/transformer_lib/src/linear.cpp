@@ -6,6 +6,8 @@ Linear::Linear(int d_model, int V)
       W(d_model, V),
       b(V) {
     // Empty body
+
+    math_lib::xavier_uniform_initialization(W, d_model, V);
 }
 
 Matrix Linear::forward(const Matrix& X) const {

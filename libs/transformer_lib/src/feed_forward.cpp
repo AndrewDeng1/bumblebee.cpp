@@ -9,6 +9,11 @@ FeedForward::FeedForward(int d_model, int d_ff)
       b_1(d_ff),
       b_2(d_model) {
     // Empty body
+
+    math_lib::xavier_uniform_initialization(W_1, d_model, d_ff);
+    math_lib::xavier_uniform_initialization(W_2, d_ff, d_model);
+    
+    // Bias vectors initialized to zero
 }
 
 Matrix FeedForward::forward(const Matrix& x) const {

@@ -9,6 +9,10 @@ Head::Head(int d_model, int d_k, int d_v, bool masked)
       W_K(d_model, d_k),
       W_V(d_model, d_v) {
     // Empty body
+
+    math_lib::xavier_uniform_initialization(W_Q, d_model, d_k);
+    math_lib::xavier_uniform_initialization(W_K, d_model, d_k);
+    math_lib::xavier_uniform_initialization(W_V, d_model, d_v);
 }
 
 Matrix Head::forward(const Matrix& Q, const Matrix& K, const Matrix& V) const {

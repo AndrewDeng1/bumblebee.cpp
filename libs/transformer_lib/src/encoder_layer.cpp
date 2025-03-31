@@ -12,6 +12,10 @@ EncoderLayer::EncoderLayer(int d_model, int d_ff, int h, int d_k, int d_v)
       W_K(d_model, d_model),
       W_V(d_model, d_model) {
     // Empty body
+
+    math_lib::xavier_uniform_initialization(W_Q, d_model, d_model);
+    math_lib::xavier_uniform_initialization(W_K, d_model, d_model);
+    math_lib::xavier_uniform_initialization(W_V, d_model, d_model);
 }
 
 Matrix EncoderLayer::forward(const Matrix& X) const {

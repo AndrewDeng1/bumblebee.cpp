@@ -16,6 +16,13 @@ DecoderLayer::DecoderLayer(int d_model, int d_ff, int h, int d_k, int d_v)
       W_K_2(d_model, d_model),
       W_V_2(d_model, d_model) {
     // Empty body
+
+    math_lib::xavier_uniform_initialization(W_Q_1, d_model, d_model);
+    math_lib::xavier_uniform_initialization(W_K_1, d_model, d_model);
+    math_lib::xavier_uniform_initialization(W_V_1, d_model, d_model);
+    math_lib::xavier_uniform_initialization(W_Q_2, d_model, d_model);
+    math_lib::xavier_uniform_initialization(W_K_2, d_model, d_model);
+    math_lib::xavier_uniform_initialization(W_V_2, d_model, d_model);
 }
 
 Matrix DecoderLayer::forward(const Matrix& X, const Matrix& encoder_out) const {

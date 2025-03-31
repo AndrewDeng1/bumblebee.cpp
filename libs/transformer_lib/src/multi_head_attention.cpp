@@ -7,6 +7,8 @@ MultiHeadAttention::MultiHeadAttention(int d_model, int h, int d_k, int d_v, boo
       masked(masked),
       W_O(h * d_v, d_model) {
     // Empty body
+
+    math_lib::xavier_uniform_initialization(W_O, h * d_v, d_model);
 }
 
 Matrix MultiHeadAttention::forward(Matrix& Q, Matrix& K, Matrix& V) const {
