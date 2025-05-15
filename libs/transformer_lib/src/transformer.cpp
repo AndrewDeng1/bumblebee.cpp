@@ -1,7 +1,9 @@
 #include <transformer_lib/transformer.h>
+#include <math_lib/math_lib.h>
 
-Transformer::Transformer(int d_model, int V, int d_ff, int h, int d_k, int d_v, int N)
-    : d_model(d_model),
+Transformer::Transformer(float learning_rate, int d_model, int V, int d_ff, int h, int d_k, int d_v, int N)
+    : learning_rate(learning_rate),
+      d_model(d_model),
       V(V),
       d_ff(d_ff),
       h(h),
@@ -10,36 +12,114 @@ Transformer::Transformer(int d_model, int V, int d_ff, int h, int d_k, int d_v, 
       N(N),
       encoder(d_model, d_ff, h, d_k, d_v, N),
       decoder(d_model, d_ff, h, d_k, d_v, N),
-      linear(d_model, V) {
-    // Empty body
+      linear(d_model, V),
+      token_embeddings(make_shared<Tensor>(Matrix(V, d_model), true)) {  // Initialize with requires_grad=true
+    // Initialize token embeddings with Xavier uniform initialization
+    math_lib::xavier_uniform_initialization(token_embeddings->data, V, d_model);
 }
 
-Matrix Transformer::forward(const vector<string>& inputs, const vector<string>& outputs) const {
-    // Create input matrix with correct dimensions
-    Matrix input_matrix(inputs.size(), d_model);
-    for (int i = 0; i < input_matrix.numRows(); ++i) {
-        for (int j = 0; j < input_matrix.numCols(); ++j) {
-            input_matrix[i][j] = 0.1f;  // Fill with dummy values for now
+shared_ptr<Tensor> Transformer::embed(const vector<string>& inputs) const {
+    // Create input tensor with correct dimensions
+    auto input_tensor = make_shared<Tensor>(Matrix(inputs.size(), d_model), true);
+    
+    // For each input token, look up its embedding
+    for (int i = 0; i < inputs.size(); ++i) {
+        // In a real implementation, you would have a token-to-index mapping
+        // For now, we'll use a simple hash function to get an index
+        size_t token_idx = std::hash<string>{}(inputs[i]) % V;
+        
+        // Copy the embedding for this token
+        for (int j = 0; j < d_model; ++j) {
+            input_tensor->data[i][j] = token_embeddings->data[token_idx][j];
         }
     }
-
-    // Matrix input_embeddings = embed(inputs);
-    // Matrix output_embeddings = embed(outputs);  // Shifted right
-
-    // Matrix X_input = math_lib::positional_encoder(input_embeddings, d_model);
-    // Matrix X_output = math_lib::positional_encoder(output_embeddings, d_model);
-
-    // Matrix encoder_out = encoder.forward(X_input);
-    // Matrix decoder_out = decoder.forward(X_output, encoder_out);
-
-    // return math_lib::softmax(linear.forward(decoder_out));
-
-    // For now, return a dummy matrix
-    Matrix dummy(outputs.size(), V);
-    for (int i = 0; i < dummy.numRows(); ++i) {
-        for (int j = 0; j < dummy.numCols(); ++j) {
-            dummy[i][j] = 0.1f;
-        }
-    }
-    return dummy;
+    
+    // Add positional encoding
+    input_tensor->data = math_lib::positional_encoder(input_tensor->data, d_model);
+    
+    return input_tensor;
 }
+
+shared_ptr<Tensor> Transformer::forward(
+    const shared_ptr<Tensor>& input_embeddings,
+    const shared_ptr<Tensor>& output_embeddings
+) const {
+    // Forward pass through encoder
+    auto encoder_out = encoder.forward(input_embeddings);
+    
+    // Forward pass through decoder
+    auto decoder_out = decoder.forward(output_embeddings, encoder_out);
+    
+    // Final linear layer and softmax
+    return math_lib::softmax(linear.forward(decoder_out));
+}
+
+// targets.requires_grad = false, but doesn't rly matter
+shared_ptr<Tensor> Transformer::cross_entropy_loss(
+    const shared_ptr<Tensor>& predictions,
+    const shared_ptr<Tensor>& targets
+) const {
+    int seq_len = predictions->data.numRows();
+    int vocab_size = predictions->data.numCols();
+    
+    // Create a new tensor for the loss
+    auto loss_tensor = make_shared<Tensor>(Matrix(1, 1), true);  // Single scalar value
+    float total_loss = 0.0f;
+    
+    // Compute cross entropy loss
+    for (int i = 0; i < seq_len; i++) {
+        for (int j = 0; j < vocab_size; j++) {
+            if (targets->data[i][j] > 0) {  // Only compute loss for the target token
+                float pred = predictions->data[i][j];
+                float target = targets->data[i][j];
+                total_loss -= target * log(pred + 1e-10f);  // Add small epsilon for numerical stability
+            }
+        }
+    }
+    
+    // Set the loss value
+    loss_tensor->data[0][0] = total_loss;
+    
+    // Set up the backward function
+    loss_tensor->backward_fn = [predictions, targets]() {
+        int seq_len = predictions->data.numRows();
+        int vocab_size = predictions->data.numCols();
+        Matrix loss_grad(seq_len, vocab_size);
+        
+        // Compute gradient: prediction - target
+        for (int i = 0; i < seq_len; i++) {
+            for (int j = 0; j < vocab_size; j++) {
+                if (targets->data[i][j] > 0) {
+                    loss_grad[i][j] = predictions->data[i][j] - targets->data[i][j];
+                }
+            }
+        }
+        
+        // Set gradients for parent tensors
+        if (predictions->requires_grad) {
+            predictions->grad = loss_grad;
+        }
+    };
+    
+    // Set parents for gradient tracking
+    loss_tensor->parents = {predictions, targets};
+    
+    return loss_tensor;
+}
+
+void Transformer::zero_grad() {
+    encoder.zero_grad();
+    decoder.zero_grad();
+    linear.zero_grad();
+    token_embeddings->grad = Matrix(token_embeddings->grad.numRows(), token_embeddings->grad.numCols());
+}
+
+void Transformer::step() {
+    // Update weights using the computed gradients
+    encoder.step(learning_rate);
+    decoder.step(learning_rate);
+    linear.step(learning_rate);
+    token_embeddings->data = token_embeddings->data - learning_rate * token_embeddings->grad;
+}
+
+

@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <memory>
 #include <math_lib/math_lib.h>
 
 using namespace std;
@@ -13,17 +14,24 @@ using namespace std;
 class FeedForward {
     
     public:
-
-        // Declare signature of constructor methods
+        // Constructor
         FeedForward(int d_model, int d_ff);
-        Matrix forward(const Matrix& X) const;
+        
+        // Forward pass
+        shared_ptr<Tensor> forward(const shared_ptr<Tensor>& X) const;
+        
+        // Zero gradients
+        void zero_grad();
+        
+        // Update weights
+        void step(float learning_rate);
     
     private:
-
         int d_model, d_ff;
 
-        Matrix W_1, W_2;
-        vector<float> b_1, b_2;
+        // Weight matrices and biases as tensors
+        shared_ptr<Tensor> W_1, W_2;
+        shared_ptr<Tensor> b_1, b_2;
 };
 
 #endif // FEED_FORWARD_H

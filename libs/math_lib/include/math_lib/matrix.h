@@ -30,12 +30,14 @@ class Matrix {
 
         // Addition
         Matrix operator+(const Matrix& matrix) const;
+        Matrix operator+=(const Matrix& matrix);
 
         Matrix operator+(const vector<float>& v) const;
 
         // Subtraction
         Matrix operator-(const Matrix& matrix) const;
-
+        Matrix operator-=(const Matrix& matrix);
+        
         // Matrix multiplication
         Matrix operator*(const Matrix& matrix) const;
 

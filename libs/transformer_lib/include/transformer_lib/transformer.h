@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <memory>
 #include <math_lib/math_lib.h>
 #include <transformer_lib/encoder.h>
 #include <transformer_lib/decoder.h>
@@ -16,13 +17,35 @@ using namespace std;
 class Transformer {
     
     public:
+        // Constructor
+        Transformer(float learning_rate, int d_model, int V, int d_ff, int h, int d_k, int d_v, int N);
+        
+        // Forward pass: takes input and output embeddings (with positional encoding already applied)
+        shared_ptr<Tensor> forward(
+            const shared_ptr<Tensor>& input_embeddings,  // Shape: (seq_len, d_model)
+            const shared_ptr<Tensor>& output_embeddings   // Shape: (seq_len, d_model)
+        ) const;
+        
+        // Zero gradients
+        void zero_grad();
+        
+        // Backward pass: takes predictions and target one-hot encodings
+        void backward(
+            const shared_ptr<Tensor>& predictions,  // Shape: (seq_len, V)
+            const shared_ptr<Tensor>& targets       // Shape: (seq_len, V)
+        );
+        
+        // Update weights
+        void step();
 
-        // Declare signature of constructor methods
-        Transformer(int d_model, int V, int d_ff, int h, int d_k, int d_v, int N);
-        Matrix forward(const vector<string>& inputs, const vector<string>& outputs) const;
+        // Compute cross entropy loss between predictions and targets
+        shared_ptr<Tensor> cross_entropy_loss(
+            const shared_ptr<Tensor>& predictions,  // Shape: (seq_len, V)
+            const shared_ptr<Tensor>& targets       // Shape: (seq_len, V)
+        ) const;
 
     private:
-
+        float learning_rate;
         int d_model;
         int V;
         int d_ff;
@@ -34,8 +57,11 @@ class Transformer {
         Encoder encoder;
         Decoder decoder;
         Linear linear;
+        
+        // Token embedding layer
+        shared_ptr<Tensor> token_embeddings;  // Shape: (V, d_model)
 
-        Matrix embed(const vector<string>& inputs) const;
+        shared_ptr<Tensor> embed(const vector<string>& inputs) const;
 };
 
 #endif // TRANSFORMER_H

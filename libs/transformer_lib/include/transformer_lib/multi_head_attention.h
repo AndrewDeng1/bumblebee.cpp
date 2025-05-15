@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <memory>
 #include <math_lib/math_lib.h>
 #include <transformer_lib/head.h>
 
@@ -14,19 +15,29 @@ using namespace std;
 class MultiHeadAttention {
     
     public:
-
-        // Declare signature of constructor methods
+        // Constructor
         MultiHeadAttention(int d_model, int h, int d_k, int d_v, bool masked=false);
-        Matrix forward(Matrix& Q, Matrix& K, Matrix& V) const;
+        
+        // Forward pass
+        shared_ptr<Tensor> forward(
+            const shared_ptr<Tensor>& Q,
+            const shared_ptr<Tensor>& K,
+            const shared_ptr<Tensor>& V
+        ) const;
+        
+        // Zero gradients
+        void zero_grad();
+        
+        // Update weights
+        void step(float learning_rate);
     
     private:
-
         int d_model;
         int h;
         bool masked;
 
         vector<Head> heads;
-        Matrix W_O;
+        shared_ptr<Tensor> W_O;
 };
 
 #endif // MULTI_HEAD_ATTENTION_H

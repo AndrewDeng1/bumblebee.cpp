@@ -62,6 +62,11 @@ Matrix Matrix::operator+(const vector<float>& v) const {
     return temp;
 }
 
+Matrix Matrix::operator+=(const Matrix& matrix){
+    *this=*this+matrix;
+    return *this;
+}
+
 Matrix Matrix::operator-(const Matrix& matrix) const {
 
     assert(numRows()==matrix.numRows()&&"Matrices must have same number of rows.");
@@ -75,6 +80,11 @@ Matrix Matrix::operator-(const Matrix& matrix) const {
     }
 
     return temp;
+}
+
+Matrix Matrix::operator-=(const Matrix& matrix){
+    *this=*this-matrix;
+    return *this;
 }
 
 Matrix Matrix::operator*(const Matrix& matrix) const {
