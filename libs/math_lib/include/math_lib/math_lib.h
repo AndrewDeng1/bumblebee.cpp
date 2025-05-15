@@ -58,10 +58,10 @@ Matrix max(const Matrix& m, float n);
 
 void xavier_uniform_initialization(Matrix& m, int d_in, int d_out);
 
-// Embed a sequence of tokens using a token-to-embedding map
+// Embed a sequence of token indices using the embeddings tensor
 shared_ptr<Tensor> embed(
-    const vector<string>& input_sequence,
-    const unordered_map<string, vector<float>>& token_embeddings,
+    const vector<int>& token_indices,  // Sequence of token indices
+    const shared_ptr<Tensor>& token_embeddings,  // Shape: (V, d_model)
     int d_model
 );
 }

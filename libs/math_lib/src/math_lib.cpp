@@ -494,30 +494,38 @@ shared_ptr<Tensor> concat(const vector<shared_ptr<Tensor>>& tensors, int axis) {
 }
 
 shared_ptr<Tensor> embed(
-    const vector<string>& input_sequence,
-    const unordered_map<string, vector<float>>& token_embeddings,
+    const vector<int>& token_indices,  // Sequence of token indices
+    const shared_ptr<Tensor>& token_embeddings,  // Shape: (V, d_model)
     int d_model
 ) {
     // Create output tensor
-    auto output = make_shared<Tensor>(Matrix(input_sequence.size(), d_model), true);
+    auto output = make_shared<Tensor>(Matrix(token_indices.size(), d_model), true);
     
-    // For each token in the sequence, look up its embedding
-    for (int i = 0; i < input_sequence.size(); ++i) {
-        const string& token = input_sequence[i];
-        auto it = token_embeddings.find(token);
-        
-        if (it != token_embeddings.end()) {
-            // Copy the embedding for this token
-            for (int j = 0; j < d_model; ++j) {
-                output->data[i][j] = it->second[j];
-            }
-        } else {
-            // If token not found, use zeros
-            for (int j = 0; j < d_model; ++j) {
-                output->data[i][j] = 0.0f;
-            }
+    // For each token index in the sequence, look up its embedding
+    for (int i = 0; i < token_indices.size(); ++i) {
+        int token_idx = token_indices[i];
+        // Copy the embedding for this token
+        for (int j = 0; j < d_model; ++j) {
+            output->data[i][j] = token_embeddings->data[token_idx][j];
         }
     }
+    
+    // Set up backward function to propagate gradients back to token embeddings
+    output->backward_fn = [token_embeddings, token_indices, d_model, output]() {
+        if (!token_embeddings->requires_grad) return;
+        
+        // For each token in the input sequence
+        for (int i = 0; i < token_indices.size(); ++i) {
+            int token_idx = token_indices[i];
+            // Accumulate gradients for this token's embedding
+            for (int j = 0; j < d_model; ++j) {
+                token_embeddings->grad[token_idx][j] += output->grad[i][j];
+            }
+        }
+    };
+    
+    // Set token_embeddings as a parent for gradient tracking
+    output->parents = {token_embeddings};
     
     return output;
 }

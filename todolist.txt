@@ -11,3 +11,8 @@ cmake --build build --config Release
 Yes debug:
 cmake -S . -B build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Debug
 cmake --build build --config Debug
+
+- learn how bpe and wordpiece encoding work
+- double check i coded everything, not missing any components, and everything connected properly
+- make sure auto diff works, make sure all the gradient stuff is correct
+- whole lotta unit testing, then comprehensive testing

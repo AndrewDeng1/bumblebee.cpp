@@ -7,7 +7,6 @@
 #include <iostream>
 #include <cassert>
 #include <memory>
-#include <unordered_map>
 #include <math_lib/math_lib.h>
 #include <transformer_lib/encoder.h>
 #include <transformer_lib/decoder.h>
@@ -21,10 +20,10 @@ class Transformer {
         // Constructor
         Transformer(float learning_rate, int d_model, int V, int d_ff, int h, int d_k, int d_v, int N);
         
-        // Forward pass: takes input and output token sequences
+        // Forward pass: takes input and output token indices
         shared_ptr<Tensor> forward(
-            const vector<string>& input_tokens,    // Input token sequence
-            const vector<string>& output_tokens    // Output token sequence
+            const vector<int>& input_tokens,    // Input token indices
+            const vector<int>& output_tokens    // Output token indices
         ) const;
         
         // Zero gradients
@@ -59,9 +58,8 @@ class Transformer {
         Decoder decoder;
         Linear linear;
         
-        // Token embedding layer and its gradients
-        shared_ptr<unordered_map<string, vector<float>>> token_embeddings;
-        shared_ptr<unordered_map<string, vector<float>>> token_embedding_grads;
+        // Token embedding layer
+        shared_ptr<Tensor> token_embeddings;  // Shape: (V, d_model)
 };
 
 #endif // TRANSFORMER_H
