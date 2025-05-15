@@ -1,5 +1,6 @@
 #include <transformer_lib/transformer.h>
 #include <math_lib/math_lib.h>
+#include <unordered_map>
 
 Transformer::Transformer(float learning_rate, int d_model, int V, int d_ff, int h, int d_k, int d_v, int N)
     : learning_rate(learning_rate),
@@ -12,38 +13,24 @@ Transformer::Transformer(float learning_rate, int d_model, int V, int d_ff, int 
       N(N),
       encoder(d_model, d_ff, h, d_k, d_v, N),
       decoder(d_model, d_ff, h, d_k, d_v, N),
-      linear(d_model, V),
-      token_embeddings(make_shared<Tensor>(Matrix(V, d_model), true)) {  // Initialize with requires_grad=true
-    // Initialize token embeddings with Xavier uniform initialization
-    math_lib::xavier_uniform_initialization(token_embeddings->data, V, d_model);
-}
-
-shared_ptr<Tensor> Transformer::embed(const vector<string>& inputs) const {
-    // Create input tensor with correct dimensions
-    auto input_tensor = make_shared<Tensor>(Matrix(inputs.size(), d_model), true);
-    
-    // For each input token, look up its embedding
-    for (int i = 0; i < inputs.size(); ++i) {
-        // In a real implementation, you would have a token-to-index mapping
-        // For now, we'll use a simple hash function to get an index
-        size_t token_idx = std::hash<string>{}(inputs[i]) % V;
-        
-        // Copy the embedding for this token
-        for (int j = 0; j < d_model; ++j) {
-            input_tensor->data[i][j] = token_embeddings->data[token_idx][j];
-        }
-    }
-    
-    // Add positional encoding
-    input_tensor->data = math_lib::positional_encoder(input_tensor->data, d_model);
-    
-    return input_tensor;
+      linear(d_model, V) {
+    // Initialize token embeddings map and its gradients
+    token_embeddings = make_shared<unordered_map<string, vector<float>>>();
+    token_embedding_grads = make_shared<unordered_map<string, vector<float>>>();
 }
 
 shared_ptr<Tensor> Transformer::forward(
-    const shared_ptr<Tensor>& input_embeddings,
-    const shared_ptr<Tensor>& output_embeddings
+    const vector<string>& input_tokens,
+    const vector<string>& output_tokens
 ) const {
+    // Get embeddings for input and output sequences
+    auto input_embeddings = math_lib::embed(input_tokens, *token_embeddings, d_model);
+    auto output_embeddings = math_lib::embed(output_tokens, *token_embeddings, d_model);
+    
+    // Add positional encoding
+    input_embeddings->data = math_lib::positional_encoder(input_embeddings->data, d_model);
+    output_embeddings->data = math_lib::positional_encoder(output_embeddings->data, d_model);
+    
     // Forward pass through encoder
     auto encoder_out = encoder.forward(input_embeddings);
     
@@ -111,7 +98,8 @@ void Transformer::zero_grad() {
     encoder.zero_grad();
     decoder.zero_grad();
     linear.zero_grad();
-    token_embeddings->grad = Matrix(token_embeddings->grad.numRows(), token_embeddings->grad.numCols());
+    // Clear the embedding gradients map
+    token_embedding_grads->clear();
 }
 
 void Transformer::step() {
@@ -119,7 +107,19 @@ void Transformer::step() {
     encoder.step(learning_rate);
     decoder.step(learning_rate);
     linear.step(learning_rate);
-    token_embeddings->data = token_embeddings->data - learning_rate * token_embeddings->grad;
+    
+    // Update token embeddings using accumulated gradients
+    for (auto& [token, grad] : *token_embedding_grads) {
+        // Initialize embedding if it doesn't exist
+        if (token_embeddings->find(token) == token_embeddings->end()) {
+            (*token_embeddings)[token] = vector<float>(d_model, 0.0f);
+        }
+        
+        // Update embedding using gradient
+        for (int j = 0; j < d_model; ++j) {
+            (*token_embeddings)[token][j] -= learning_rate * grad[j];
+        }
+    }
 }
 
 

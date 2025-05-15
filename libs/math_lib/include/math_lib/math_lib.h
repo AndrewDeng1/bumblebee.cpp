@@ -6,6 +6,9 @@
 #include <math_lib/tensor.h>
 #include <cmath>
 #include <random>
+#include <vector>
+#include <unordered_map>
+#include <string>
 
 namespace math_lib {
 
@@ -54,6 +57,13 @@ Matrix max(float n, const Matrix& m);
 Matrix max(const Matrix& m, float n);
 
 void xavier_uniform_initialization(Matrix& m, int d_in, int d_out);
+
+// Embed a sequence of tokens using a token-to-embedding map
+shared_ptr<Tensor> embed(
+    const vector<string>& input_sequence,
+    const unordered_map<string, vector<float>>& token_embeddings,
+    int d_model
+);
 }
 
 

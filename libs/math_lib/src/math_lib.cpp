@@ -493,4 +493,33 @@ shared_ptr<Tensor> concat(const vector<shared_ptr<Tensor>>& tensors, int axis) {
     return out;
 }
 
+shared_ptr<Tensor> embed(
+    const vector<string>& input_sequence,
+    const unordered_map<string, vector<float>>& token_embeddings,
+    int d_model
+) {
+    // Create output tensor
+    auto output = make_shared<Tensor>(Matrix(input_sequence.size(), d_model), true);
+    
+    // For each token in the sequence, look up its embedding
+    for (int i = 0; i < input_sequence.size(); ++i) {
+        const string& token = input_sequence[i];
+        auto it = token_embeddings.find(token);
+        
+        if (it != token_embeddings.end()) {
+            // Copy the embedding for this token
+            for (int j = 0; j < d_model; ++j) {
+                output->data[i][j] = it->second[j];
+            }
+        } else {
+            // If token not found, use zeros
+            for (int j = 0; j < d_model; ++j) {
+                output->data[i][j] = 0.0f;
+            }
+        }
+    }
+    
+    return output;
+}
+
 } // namespace math_lib
