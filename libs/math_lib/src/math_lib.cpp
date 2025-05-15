@@ -74,9 +74,10 @@ Matrix normalize(const Matrix& m, const int axis){
             
             float mu=mean(m[i]);
             float sig=std_dev(m[i]);
+            float eps = 1e-6f;  // Small epsilon to prevent division by zero
 
             for(int j=0; j<m.numCols(); j++){
-                ret[i][j]=(m[i][j]-mu)/sig;
+                ret[i][j]=(m[i][j]-mu)/(sig + eps);
             }
         }
     } 

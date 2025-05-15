@@ -15,9 +15,9 @@ EncoderLayer::EncoderLayer(int d_model, int d_ff, int h, int d_k, int d_v)
 }
 
 Matrix EncoderLayer::forward(const Matrix& X) const {
-    Matrix Q=X*W_Q;
-    Matrix K=X*W_K;
-    Matrix V=X*W_V;
-    Matrix temp=math_lib::add_and_norm(X, multi_head_attention.forward(Q, K, V));
+    Matrix Q = X * W_Q;  // (seq_len × d_model)
+    Matrix K = X * W_K;  // (seq_len × d_model)
+    Matrix V = X * W_V;  // (seq_len × d_model)
+    Matrix temp = math_lib::add_and_norm(X, multi_head_attention.forward(Q, K, V));
     return math_lib::add_and_norm(temp, feed_forward.forward(temp));
 }

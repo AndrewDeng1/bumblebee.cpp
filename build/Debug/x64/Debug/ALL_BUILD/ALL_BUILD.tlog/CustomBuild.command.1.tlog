@@ -1,0 +1,10 @@
+^C:\USERS\ANDAR\WATERLOO\SIDEPROJECTS\TRANSFORMER.CPP\CMAKELISTS.TXT
+setlocal
+C:\Users\andar\Downloads\cmake-3.30.0-windows-x86_64\cmake-3.30.0-windows-x86_64\bin\cmake.exe -SC:/Users/andar/Waterloo/SideProjects/transformer.cpp -BC:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/Debug --check-stamp-file C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/Debug/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
