@@ -337,7 +337,7 @@ std::shared_ptr<Tensor> attention(
     const std::shared_ptr<Tensor>& K,
     const std::shared_ptr<Tensor>& V,
     int d_k,
-    bool masked = false
+    bool masked
 ) {
     // Step 1: Compute scores = (Q * Kᵀ) / sqrt(d_k)
     Matrix K_T = K->data.T();

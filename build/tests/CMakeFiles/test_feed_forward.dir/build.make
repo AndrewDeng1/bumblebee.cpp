@@ -94,6 +94,7 @@ tests/test_feed_forward.exe: tests/CMakeFiles/test_feed_forward.dir/unit/transfo
 tests/test_feed_forward.exe: tests/CMakeFiles/test_feed_forward.dir/build.make
 tests/test_feed_forward.exe: libs/math_lib/libmath_lib.a
 tests/test_feed_forward.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_feed_forward.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_feed_forward.exe: libs/math_lib/libmath_lib.a
 tests/test_feed_forward.exe: tests/CMakeFiles/test_feed_forward.dir/linkLibs.rsp
 tests/test_feed_forward.exe: tests/CMakeFiles/test_feed_forward.dir/objects1.rsp

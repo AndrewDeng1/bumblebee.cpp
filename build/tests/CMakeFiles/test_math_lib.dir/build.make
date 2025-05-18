@@ -94,6 +94,7 @@ tests/test_math_lib.exe: tests/CMakeFiles/test_math_lib.dir/unit/math_lib/test_m
 tests/test_math_lib.exe: tests/CMakeFiles/test_math_lib.dir/build.make
 tests/test_math_lib.exe: libs/math_lib/libmath_lib.a
 tests/test_math_lib.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_math_lib.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_math_lib.exe: libs/math_lib/libmath_lib.a
 tests/test_math_lib.exe: tests/CMakeFiles/test_math_lib.dir/linkLibs.rsp
 tests/test_math_lib.exe: tests/CMakeFiles/test_math_lib.dir/objects1.rsp

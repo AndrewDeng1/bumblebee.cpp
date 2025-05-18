@@ -94,6 +94,7 @@ tests/test_multi_head_attention.exe: tests/CMakeFiles/test_multi_head_attention.
 tests/test_multi_head_attention.exe: tests/CMakeFiles/test_multi_head_attention.dir/build.make
 tests/test_multi_head_attention.exe: libs/math_lib/libmath_lib.a
 tests/test_multi_head_attention.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_multi_head_attention.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_multi_head_attention.exe: libs/math_lib/libmath_lib.a
 tests/test_multi_head_attention.exe: tests/CMakeFiles/test_multi_head_attention.dir/linkLibs.rsp
 tests/test_multi_head_attention.exe: tests/CMakeFiles/test_multi_head_attention.dir/objects1.rsp

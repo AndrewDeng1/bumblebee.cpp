@@ -94,6 +94,7 @@ tests/test_transformer.exe: tests/CMakeFiles/test_transformer.dir/unit/transform
 tests/test_transformer.exe: tests/CMakeFiles/test_transformer.dir/build.make
 tests/test_transformer.exe: libs/math_lib/libmath_lib.a
 tests/test_transformer.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_transformer.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_transformer.exe: libs/math_lib/libmath_lib.a
 tests/test_transformer.exe: tests/CMakeFiles/test_transformer.dir/linkLibs.rsp
 tests/test_transformer.exe: tests/CMakeFiles/test_transformer.dir/objects1.rsp

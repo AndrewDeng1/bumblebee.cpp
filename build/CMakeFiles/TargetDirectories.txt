@@ -18,8 +18,16 @@ C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib/
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib/CMakeFiles/install.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib/CMakeFiles/install/local.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib/CMakeFiles/install/strip.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/edit_cache.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/rebuild_cache.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/list_install_components.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/install.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/install/local.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/install/strip.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_math_lib.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_matrix.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_tokenizer_lib.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_decoder.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_decoder_layer.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_encoder.dir

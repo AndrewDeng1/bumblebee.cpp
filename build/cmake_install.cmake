@@ -41,6 +41,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/math_lib/cmake_install.cmake")
   include("C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib/cmake_install.cmake")
+  include("C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/cmake_install.cmake")
   include("C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/cmake_install.cmake")
 
 endif()

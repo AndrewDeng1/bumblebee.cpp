@@ -94,6 +94,7 @@ tests/test_decoder.exe: tests/CMakeFiles/test_decoder.dir/unit/transformer_lib/t
 tests/test_decoder.exe: tests/CMakeFiles/test_decoder.dir/build.make
 tests/test_decoder.exe: libs/math_lib/libmath_lib.a
 tests/test_decoder.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_decoder.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_decoder.exe: libs/math_lib/libmath_lib.a
 tests/test_decoder.exe: tests/CMakeFiles/test_decoder.dir/linkLibs.rsp
 tests/test_decoder.exe: tests/CMakeFiles/test_decoder.dir/objects1.rsp

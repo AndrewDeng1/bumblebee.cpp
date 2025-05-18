@@ -187,6 +187,19 @@ transformer_lib/fast:
 .PHONY : transformer_lib/fast
 
 #=============================================================================
+# Target rules for targets named tokenizer_lib
+
+# Build rule for target.
+tokenizer_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tokenizer_lib
+.PHONY : tokenizer_lib
+
+# fast build rule for target.
+tokenizer_lib/fast:
+	$(MAKE) $(MAKESILENT) -f libs\tokenizer_lib\CMakeFiles\tokenizer_lib.dir\build.make libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/build
+.PHONY : tokenizer_lib/fast
+
+#=============================================================================
 # Target rules for targets named test_math_lib
 
 # Build rule for target.
@@ -211,6 +224,19 @@ test_matrix: cmake_check_build_system
 test_matrix/fast:
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_matrix.dir\build.make tests/CMakeFiles/test_matrix.dir/build
 .PHONY : test_matrix/fast
+
+#=============================================================================
+# Target rules for targets named test_tokenizer_lib
+
+# Build rule for target.
+test_tokenizer_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_tokenizer_lib
+.PHONY : test_tokenizer_lib
+
+# fast build rule for target.
+test_tokenizer_lib/fast:
+	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/build
+.PHONY : test_tokenizer_lib/fast
 
 #=============================================================================
 # Target rules for targets named test_decoder
@@ -352,7 +378,9 @@ help:
 	@echo ... test_math_lib
 	@echo ... test_matrix
 	@echo ... test_multi_head_attention
+	@echo ... test_tokenizer_lib
 	@echo ... test_transformer
+	@echo ... tokenizer_lib
 	@echo ... transformer_lib
 .PHONY : help
 

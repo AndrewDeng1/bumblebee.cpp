@@ -35,6 +35,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.30.0/CMakeRCCompiler.cmake"
   "CMakeFiles/3.30.0/CMakeSystem.cmake"
   "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/CMakeLists.txt"
+  "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/tokenizer_lib/CMakeLists.txt"
   "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/CMakeLists.txt"
   "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/CMakeLists.txt"
   )
@@ -50,6 +51,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/math_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/transformer_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "libs/tokenizer_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -57,8 +59,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "libs/math_lib/CMakeFiles/math_lib.dir/DependInfo.cmake"
   "libs/transformer_lib/CMakeFiles/transformer_lib.dir/DependInfo.cmake"
+  "libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_math_lib.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_matrix.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_tokenizer_lib.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_decoder.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_decoder_layer.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_encoder.dir/DependInfo.cmake"

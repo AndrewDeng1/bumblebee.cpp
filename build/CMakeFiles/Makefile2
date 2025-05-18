@@ -64,18 +64,21 @@ CMAKE_BINARY_DIR = C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build
 # The main recursive "all" target.
 all: libs/math_lib/all
 all: libs/transformer_lib/all
+all: libs/tokenizer_lib/all
 all: tests/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: libs/math_lib/preinstall
 preinstall: libs/transformer_lib/preinstall
+preinstall: libs/tokenizer_lib/preinstall
 preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: libs/math_lib/clean
 clean: libs/transformer_lib/clean
+clean: libs/tokenizer_lib/clean
 clean: tests/clean
 .PHONY : clean
 
@@ -93,6 +96,21 @@ libs/math_lib/preinstall:
 # Recursive "clean" directory target.
 libs/math_lib/clean: libs/math_lib/CMakeFiles/math_lib.dir/clean
 .PHONY : libs/math_lib/clean
+
+#=============================================================================
+# Directory level rules for directory libs/tokenizer_lib
+
+# Recursive "all" directory target.
+libs/tokenizer_lib/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
+.PHONY : libs/tokenizer_lib/all
+
+# Recursive "preinstall" directory target.
+libs/tokenizer_lib/preinstall:
+.PHONY : libs/tokenizer_lib/preinstall
+
+# Recursive "clean" directory target.
+libs/tokenizer_lib/clean: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/clean
+.PHONY : libs/tokenizer_lib/clean
 
 #=============================================================================
 # Directory level rules for directory libs/transformer_lib
@@ -115,6 +133,7 @@ libs/transformer_lib/clean: libs/transformer_lib/CMakeFiles/transformer_lib.dir/
 # Recursive "all" directory target.
 tests/all: tests/CMakeFiles/test_math_lib.dir/all
 tests/all: tests/CMakeFiles/test_matrix.dir/all
+tests/all: tests/CMakeFiles/test_tokenizer_lib.dir/all
 tests/all: tests/CMakeFiles/test_decoder.dir/all
 tests/all: tests/CMakeFiles/test_decoder_layer.dir/all
 tests/all: tests/CMakeFiles/test_encoder.dir/all
@@ -133,6 +152,7 @@ tests/preinstall:
 # Recursive "clean" directory target.
 tests/clean: tests/CMakeFiles/test_math_lib.dir/clean
 tests/clean: tests/CMakeFiles/test_matrix.dir/clean
+tests/clean: tests/CMakeFiles/test_tokenizer_lib.dir/clean
 tests/clean: tests/CMakeFiles/test_decoder.dir/clean
 tests/clean: tests/CMakeFiles/test_decoder_layer.dir/clean
 tests/clean: tests/CMakeFiles/test_encoder.dir/clean
@@ -177,7 +197,7 @@ libs/math_lib/CMakeFiles/math_lib.dir/clean:
 libs/transformer_lib/CMakeFiles/transformer_lib.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f libs\transformer_lib\CMakeFiles\transformer_lib.dir\build.make libs/transformer_lib/CMakeFiles/transformer_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs\transformer_lib\CMakeFiles\transformer_lib.dir\build.make libs/transformer_lib/CMakeFiles/transformer_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=26,27,28,29,30,31,32,33,34,35 "Built target transformer_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=30,31,32,33,34,35,36,37,38,39 "Built target transformer_lib"
 .PHONY : libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
 
 # Build rule for subdir invocation for target.
@@ -197,11 +217,38 @@ libs/transformer_lib/CMakeFiles/transformer_lib.dir/clean:
 .PHONY : libs/transformer_lib/CMakeFiles/transformer_lib.dir/clean
 
 #=============================================================================
+# Target rules for target libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir
+
+# All Build rule for target.
+libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all:
+	$(MAKE) $(MAKESILENT) -f libs\tokenizer_lib\CMakeFiles\tokenizer_lib.dir\build.make libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/depend
+	$(MAKE) $(MAKESILENT) -f libs\tokenizer_lib\CMakeFiles\tokenizer_lib.dir\build.make libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=28,29 "Built target tokenizer_lib"
+.PHONY : libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
+
+# Build rule for subdir invocation for target.
+libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
+.PHONY : libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/rule
+
+# Convenience name for target.
+tokenizer_lib: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/rule
+.PHONY : tokenizer_lib
+
+# clean rule for target.
+libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f libs\tokenizer_lib\CMakeFiles\tokenizer_lib.dir\build.make libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/clean
+.PHONY : libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/clean
+
+#=============================================================================
 # Target rules for target tests/CMakeFiles/test_math_lib.dir
 
 # All Build rule for target.
 tests/CMakeFiles/test_math_lib.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_math_lib.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_math_lib.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_math_lib.dir\build.make tests/CMakeFiles/test_math_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_math_lib.dir\build.make tests/CMakeFiles/test_math_lib.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=18,19 "Built target test_math_lib"
@@ -209,7 +256,7 @@ tests/CMakeFiles/test_math_lib.dir/all: libs/transformer_lib/CMakeFiles/transfor
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_math_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_math_lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_math_lib.dir/rule
@@ -229,6 +276,7 @@ tests/CMakeFiles/test_math_lib.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_matrix.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_matrix.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_matrix.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_matrix.dir\build.make tests/CMakeFiles/test_matrix.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_matrix.dir\build.make tests/CMakeFiles/test_matrix.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=20,21 "Built target test_matrix"
@@ -236,7 +284,7 @@ tests/CMakeFiles/test_matrix.dir/all: libs/transformer_lib/CMakeFiles/transforme
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_matrix.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_matrix.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_matrix.dir/rule
@@ -251,11 +299,40 @@ tests/CMakeFiles/test_matrix.dir/clean:
 .PHONY : tests/CMakeFiles/test_matrix.dir/clean
 
 #=============================================================================
+# Target rules for target tests/CMakeFiles/test_tokenizer_lib.dir
+
+# All Build rule for target.
+tests/CMakeFiles/test_tokenizer_lib.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
+tests/CMakeFiles/test_tokenizer_lib.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_tokenizer_lib.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
+	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=24,25 "Built target test_tokenizer_lib"
+.PHONY : tests/CMakeFiles/test_tokenizer_lib.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/test_tokenizer_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_tokenizer_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
+.PHONY : tests/CMakeFiles/test_tokenizer_lib.dir/rule
+
+# Convenience name for target.
+test_tokenizer_lib: tests/CMakeFiles/test_tokenizer_lib.dir/rule
+.PHONY : test_tokenizer_lib
+
+# clean rule for target.
+tests/CMakeFiles/test_tokenizer_lib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/clean
+.PHONY : tests/CMakeFiles/test_tokenizer_lib.dir/clean
+
+#=============================================================================
 # Target rules for target tests/CMakeFiles/test_decoder.dir
 
 # All Build rule for target.
 tests/CMakeFiles/test_decoder.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_decoder.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_decoder.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_decoder.dir\build.make tests/CMakeFiles/test_decoder.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_decoder.dir\build.make tests/CMakeFiles/test_decoder.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=4,5 "Built target test_decoder"
@@ -263,7 +340,7 @@ tests/CMakeFiles/test_decoder.dir/all: libs/transformer_lib/CMakeFiles/transform
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_decoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_decoder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_decoder.dir/rule
@@ -283,6 +360,7 @@ tests/CMakeFiles/test_decoder.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_decoder_layer.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_decoder_layer.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_decoder_layer.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_decoder_layer.dir\build.make tests/CMakeFiles/test_decoder_layer.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_decoder_layer.dir\build.make tests/CMakeFiles/test_decoder_layer.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=6,7 "Built target test_decoder_layer"
@@ -290,7 +368,7 @@ tests/CMakeFiles/test_decoder_layer.dir/all: libs/transformer_lib/CMakeFiles/tra
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_decoder_layer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_decoder_layer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_decoder_layer.dir/rule
@@ -310,6 +388,7 @@ tests/CMakeFiles/test_decoder_layer.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_encoder.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_encoder.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_encoder.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_encoder.dir\build.make tests/CMakeFiles/test_encoder.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_encoder.dir\build.make tests/CMakeFiles/test_encoder.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=8,9 "Built target test_encoder"
@@ -317,7 +396,7 @@ tests/CMakeFiles/test_encoder.dir/all: libs/transformer_lib/CMakeFiles/transform
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_encoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_encoder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_encoder.dir/rule
@@ -337,6 +416,7 @@ tests/CMakeFiles/test_encoder.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_encoder_layer.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_encoder_layer.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_encoder_layer.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_encoder_layer.dir\build.make tests/CMakeFiles/test_encoder_layer.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_encoder_layer.dir\build.make tests/CMakeFiles/test_encoder_layer.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=10,11 "Built target test_encoder_layer"
@@ -344,7 +424,7 @@ tests/CMakeFiles/test_encoder_layer.dir/all: libs/transformer_lib/CMakeFiles/tra
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_encoder_layer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_encoder_layer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_encoder_layer.dir/rule
@@ -364,6 +444,7 @@ tests/CMakeFiles/test_encoder_layer.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_feed_forward.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_feed_forward.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_feed_forward.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_feed_forward.dir\build.make tests/CMakeFiles/test_feed_forward.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_feed_forward.dir\build.make tests/CMakeFiles/test_feed_forward.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=12,13 "Built target test_feed_forward"
@@ -371,7 +452,7 @@ tests/CMakeFiles/test_feed_forward.dir/all: libs/transformer_lib/CMakeFiles/tran
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_feed_forward.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_feed_forward.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_feed_forward.dir/rule
@@ -391,6 +472,7 @@ tests/CMakeFiles/test_feed_forward.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_head.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_head.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_head.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_head.dir\build.make tests/CMakeFiles/test_head.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_head.dir\build.make tests/CMakeFiles/test_head.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=14,15 "Built target test_head"
@@ -398,7 +480,7 @@ tests/CMakeFiles/test_head.dir/all: libs/transformer_lib/CMakeFiles/transformer_
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_head.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_head.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_head.dir/rule
@@ -418,6 +500,7 @@ tests/CMakeFiles/test_head.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_linear.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_linear.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_linear.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_linear.dir\build.make tests/CMakeFiles/test_linear.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_linear.dir\build.make tests/CMakeFiles/test_linear.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=16,17 "Built target test_linear"
@@ -425,7 +508,7 @@ tests/CMakeFiles/test_linear.dir/all: libs/transformer_lib/CMakeFiles/transforme
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_linear.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_linear.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_linear.dir/rule
@@ -445,6 +528,7 @@ tests/CMakeFiles/test_linear.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_multi_head_attention.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_multi_head_attention.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_multi_head_attention.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_multi_head_attention.dir\build.make tests/CMakeFiles/test_multi_head_attention.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_multi_head_attention.dir\build.make tests/CMakeFiles/test_multi_head_attention.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=22,23 "Built target test_multi_head_attention"
@@ -452,7 +536,7 @@ tests/CMakeFiles/test_multi_head_attention.dir/all: libs/transformer_lib/CMakeFi
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_multi_head_attention.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_multi_head_attention.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_multi_head_attention.dir/rule
@@ -472,14 +556,15 @@ tests/CMakeFiles/test_multi_head_attention.dir/clean:
 # All Build rule for target.
 tests/CMakeFiles/test_transformer.dir/all: libs/math_lib/CMakeFiles/math_lib.dir/all
 tests/CMakeFiles/test_transformer.dir/all: libs/transformer_lib/CMakeFiles/transformer_lib.dir/all
+tests/CMakeFiles/test_transformer.dir/all: libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_transformer.dir\build.make tests/CMakeFiles/test_transformer.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_transformer.dir\build.make tests/CMakeFiles/test_transformer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=24,25 "Built target test_transformer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=26,27 "Built target test_transformer"
 .PHONY : tests/CMakeFiles/test_transformer.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_transformer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_transformer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_transformer.dir/rule

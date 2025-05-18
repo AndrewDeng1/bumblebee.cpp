@@ -3,6 +3,7 @@
 #include <set>
 #include <queue>
 #include <sstream>
+#include <iostream>
 
 Tokenizer::Tokenizer() {
     // Initialize special tokens
@@ -40,52 +41,79 @@ void Tokenizer::fit_character_level(const std::vector<std::string>& texts) {
 }
 
 void Tokenizer::fit_bpe(const std::vector<std::string>& texts, int vocab_size) {
-    // First, create character-level vocabulary
+
     fit_character_level(texts);
     
     // Learn BPE merges
     learn_bpe_merges(texts, vocab_size);
 }
 
-std::vector<int> Tokenizer::encode_character_level(const std::string& text) const {
-    std::vector<int> tokens;
-    tokens.reserve(text.size());
+std::vector<std::vector<int>> Tokenizer::encode_character_level(const std::vector<std::string>& texts) const {
+    std::vector<std::vector<int>> encoded_texts;
+    encoded_texts.reserve(texts.size());
     
-    for (char c : text) {
-        std::string char_str(1, c);
-        auto it = token_to_idx.find(char_str);
-        if (it != token_to_idx.end()) {
-            tokens.push_back(it->second);
-        } else {
-            tokens.push_back(unk_idx);
+    for (const auto& text : texts) {
+        std::vector<int> tokens;
+        tokens.reserve(text.size() + 2);  // +2 for BOS and EOS tokens
+        
+        // Add BOS token
+        tokens.push_back(bos_idx);
+        
+        // Encode each character
+        for (char c : text) {
+            std::string char_str(1, c);
+            auto it = token_to_idx.find(char_str);
+            if (it != token_to_idx.end()) {
+                tokens.push_back(it->second);
+            } else {
+                tokens.push_back(unk_idx);
+            }
         }
+        
+        // Add EOS token
+        tokens.push_back(eos_idx);
+        
+        encoded_texts.push_back(std::move(tokens));
     }
     
-    return tokens;
+    return encoded_texts;
 }
 
-std::vector<int> Tokenizer::encode_bpe(const std::string& text) const {
-    std::vector<std::string> tokens = tokenize_bpe(text);
-    std::vector<int> indices;
-    indices.reserve(tokens.size());
+std::vector<std::vector<int>> Tokenizer::encode_bpe(const std::vector<std::string>& texts) const {
+    std::vector<std::vector<int>> encoded_texts;
+    encoded_texts.reserve(texts.size());
     
-    for (const auto& token : tokens) {
-        auto it = token_to_idx.find(token);
-        if (it != token_to_idx.end()) {
-            indices.push_back(it->second);
-        } else {
-            indices.push_back(unk_idx);
+    for (const auto& text : texts) {
+        std::vector<std::string> tokens = tokenize_bpe(text);
+        std::vector<int> indices;
+        indices.reserve(tokens.size() + 2);  // +2 for BOS and EOS tokens
+        
+        // Add BOS token
+        indices.push_back(bos_idx);
+        
+        // Convert tokens to indices
+        for (const auto& token : tokens) {
+            auto it = token_to_idx.find(token);
+            if (it != token_to_idx.end()) {
+                indices.push_back(it->second);
+            } else {
+                indices.push_back(unk_idx);
+            }
         }
+        
+        // Add EOS token
+        indices.push_back(eos_idx);
+        
+        encoded_texts.push_back(std::move(indices));
     }
     
-    return indices;
+    return encoded_texts;
 }
 
 std::string Tokenizer::decode_character_level(const std::vector<int>& tokens) const {
-    std::string text;
-    text.reserve(tokens.size());
-    
+    std::string text = "";
     for (int idx : tokens) {
+        
         auto it = idx_to_token.find(idx);
         if (it != idx_to_token.end()) {
             const std::string& token = it->second;
@@ -130,91 +158,97 @@ const std::unordered_map<int, std::string>& Tokenizer::get_idx_to_token() const 
     return idx_to_token;
 }
 
-std::vector<std::string> Tokenizer::get_bpe_pairs(const std::string& text) const {
-    std::vector<std::string> pairs;
-    for (size_t i = 0; i < text.length() - 1; ++i) {
-        pairs.push_back(text.substr(i, 2));
-    }
-    return pairs;
-}
-
-std::string Tokenizer::merge_bpe_pairs(const std::string& text) const {
-    std::string result = text;
-    bool merged;
-    do {
-        merged = false;
-        auto pairs = get_bpe_pairs(result);
-        for (const auto& pair : pairs) {
-            auto it = bpe_merges.find(pair);
-            if (it != bpe_merges.end()) {
-                // Replace the pair with its merged form
-                size_t pos = result.find(pair);
-                if (pos != std::string::npos) {
-                    std::string merged_token = std::to_string(it->second);
-                    result.replace(pos, 2, merged_token);
-                    merged = true;
-                    break;
-                }
-            }
-        }
-    } while (merged);
-    return result;
-}
-
 void Tokenizer::learn_bpe_merges(const std::vector<std::string>& texts, int target_vocab_size) {
-    // Count pair frequencies
-    std::unordered_map<std::string, int> pair_freqs;
-    for (const auto& text : texts) {
-        auto pairs = get_bpe_pairs(text);
-        for (const auto& pair : pairs) {
-            pair_freqs[pair]++;
+    
+    std::vector<std::vector<std::string>> tokenized_texts;
+    
+    for(int i=0; i<texts.size(); i++){
+        tokenized_texts.push_back(std::vector<std::string>());
+        for(int j=0; j<texts[i].size(); j++){
+            tokenized_texts[i].push_back(std::string(1, texts[i][j]));
         }
     }
     
-    // Perform merges until we reach target vocabulary size
-    while (token_to_idx.size() < target_vocab_size && !pair_freqs.empty()) {
-        // Find most frequent pair
+    int idx = token_to_idx.size();
+
+    std::unordered_map<std::string, int> pair_freqs;
+    while (token_to_idx.size() < target_vocab_size){
+        pair_freqs.clear();
+        for(int i=0; i<tokenized_texts.size(); i++){
+            for(int j=0; j<tokenized_texts[i].size()-1; j++){
+                std::string pair = tokenized_texts[i][j] + tokenized_texts[i][j+1];
+                pair_freqs[pair]++;
+            }
+        }
+        if(pair_freqs.empty()) break;
         auto best_pair = std::max_element(pair_freqs.begin(), pair_freqs.end(),
             [](const auto& a, const auto& b) { return a.second < b.second; });
-        
-        if (best_pair == pair_freqs.end()) break;
-        
-        // Add new merged token to vocabulary
-        int new_idx = token_to_idx.size();
-        token_to_idx[best_pair->first] = new_idx;
-        idx_to_token[new_idx] = best_pair->first;
-        bpe_merges[best_pair->first] = new_idx;
-        
-        // Update pair frequencies
-        pair_freqs.erase(best_pair);
+            
+        token_to_idx[best_pair->first] = idx;
+        idx_to_token[idx] = best_pair->first;
+        idx++;
+
+        for(int i=0; i<tokenized_texts.size(); i++){
+            for(int j=0; j<tokenized_texts[i].size()-1; j++){
+                if(tokenized_texts[i][j] + tokenized_texts[i][j+1] == best_pair->first){
+                    tokenized_texts[i][j] = best_pair->first;
+                    tokenized_texts[i].erase(tokenized_texts[i].begin() + j + 1);
+                    j--;
+                }
+            }
+        }
     }
+
+    // // Count pair frequencies
+    // std::unordered_map<std::string, int> pair_freqs;
+    // for (const auto& text : texts) {
+    //     auto pairs = get_bpe_pairs(text);
+    //     for (const auto& pair : pairs) {
+    //         pair_freqs[pair]++;
+    //     }
+    // }
+    
+    // // Perform merges until we reach target vocabulary size
+    // while (token_to_idx.size() < target_vocab_size && !pair_freqs.empty()) {
+    //     // Find most frequent pair
+    //     auto best_pair = std::max_element(pair_freqs.begin(), pair_freqs.end(),
+    //         [](const auto& a, const auto& b) { return a.second < b.second; });
+        
+    //     if (best_pair == pair_freqs.end()) break;
+        
+    //     // Add new merged token to vocabulary
+    //     int new_idx = token_to_idx.size();
+    //     token_to_idx[best_pair->first] = new_idx;
+    //     idx_to_token[new_idx] = best_pair->first;
+    //     bpe_merges[best_pair->first] = new_idx;
+        
+    //     // Update pair frequencies
+    //     pair_freqs.erase(best_pair);
+    // }
 }
 
 std::vector<std::string> Tokenizer::tokenize_bpe(const std::string& text) const {
     std::vector<std::string> tokens;
-    std::string current = text;
-    
-    while (!current.empty()) {
-        // Try to find the longest matching token
-        size_t max_len = 0;
-        std::string best_token;
-        
-        for (const auto& [token, _] : token_to_idx) {
-            if (current.find(token) == 0 && token.length() > max_len) {
-                max_len = token.length();
-                best_token = token;
+
+    for(int i=0; i<text.size(); i++){
+        tokens.push_back(std::string(1, text[i]));
+    }
+
+    bool flag=true;
+    while (flag) {
+        flag=false;
+
+        for(int i=0; i<tokens.size()-1; i++){
+            std::string pair = tokens[i] + tokens[i+1];
+            auto it = token_to_idx.find(pair);
+            if(it != token_to_idx.end()){
+                tokens[i] = pair;
+                tokens.erase(tokens.begin() + i + 1);
+                flag=true;
+                break;
             }
-        }
-        
-        if (max_len > 0) {
-            tokens.push_back(best_token);
-            current = current.substr(max_len);
-        } else {
-            // If no match found, use UNK token
-            tokens.push_back(UNK_TOKEN);
-            current = current.substr(1);
         }
     }
     
     return tokens;
-} 
+}
