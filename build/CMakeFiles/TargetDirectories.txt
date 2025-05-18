@@ -27,6 +27,7 @@ C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CM
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib/CMakeFiles/install/strip.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_math_lib.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_matrix.dir
+C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_tensor.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_tokenizer_lib.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_decoder.dir
 C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests/CMakeFiles/test_decoder_layer.dir

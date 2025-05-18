@@ -85,6 +85,12 @@
 				"file" : 0,
 				"line" : 24,
 				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 24,
+				"parent" : 0
 			}
 		]
 	},
@@ -142,9 +148,9 @@
 			"destination" : "bin",
 			"paths" : 
 			[
-				"tests/test_tokenizer_lib.exe"
+				"tests/test_tensor.exe"
 			],
-			"targetId" : "test_tokenizer_lib::@a44f0ac069e85531cdee",
+			"targetId" : "test_tensor::@a44f0ac069e85531cdee",
 			"targetIndex" : 11,
 			"type" : "target"
 		},
@@ -153,7 +159,7 @@
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
-				"id" : "test_tokenizer_lib::@a44f0ac069e85531cdee",
+				"id" : "test_tensor::@a44f0ac069e85531cdee",
 				"index" : 11
 			},
 			"destination" : "bin",
@@ -165,6 +171,29 @@
 			"destination" : "bin",
 			"paths" : 
 			[
+				"tests/test_tokenizer_lib.exe"
+			],
+			"targetId" : "test_tokenizer_lib::@a44f0ac069e85531cdee",
+			"targetIndex" : 12,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"cxxModuleBmiTarget" : 
+			{
+				"id" : "test_tokenizer_lib::@a44f0ac069e85531cdee",
+				"index" : 12
+			},
+			"destination" : "bin",
+			"type" : "cxxModuleBmi"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
 				"tests/test_decoder.exe"
 			],
 			"targetId" : "test_decoder::@a44f0ac069e85531cdee",
@@ -172,7 +201,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 4,
+			"backtrace" : 5,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -183,7 +212,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 6,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -195,7 +224,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 6,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -206,7 +235,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 6,
+			"backtrace" : 7,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -218,7 +247,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 6,
+			"backtrace" : 7,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -229,7 +258,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 7,
+			"backtrace" : 8,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -241,7 +270,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 7,
+			"backtrace" : 8,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -252,7 +281,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 8,
+			"backtrace" : 9,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -264,7 +293,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 8,
+			"backtrace" : 9,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -275,7 +304,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 9,
+			"backtrace" : 10,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -287,7 +316,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 9,
+			"backtrace" : 10,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -298,7 +327,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 10,
+			"backtrace" : 11,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -310,7 +339,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 10,
+			"backtrace" : 11,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -321,7 +350,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 11,
+			"backtrace" : 12,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -333,7 +362,7 @@
 			"type" : "target"
 		},
 		{
-			"backtrace" : 11,
+			"backtrace" : 12,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
@@ -344,7 +373,7 @@
 			"type" : "cxxModuleBmi"
 		},
 		{
-			"backtrace" : 12,
+			"backtrace" : 13,
 			"component" : "Unspecified",
 			"destination" : "bin",
 			"paths" : 
@@ -352,16 +381,16 @@
 				"tests/test_transformer.exe"
 			],
 			"targetId" : "test_transformer::@a44f0ac069e85531cdee",
-			"targetIndex" : 12,
+			"targetIndex" : 13,
 			"type" : "target"
 		},
 		{
-			"backtrace" : 12,
+			"backtrace" : 13,
 			"component" : "Unspecified",
 			"cxxModuleBmiTarget" : 
 			{
 				"id" : "test_transformer::@a44f0ac069e85531cdee",
-				"index" : 12
+				"index" : 13
 			},
 			"destination" : "bin",
 			"type" : "cxxModuleBmi"

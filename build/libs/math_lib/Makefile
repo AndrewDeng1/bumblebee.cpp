@@ -222,6 +222,30 @@ src/matrix.cpp.s:
 	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f libs\math_lib\CMakeFiles\math_lib.dir\build.make libs/math_lib/CMakeFiles/math_lib.dir/src/matrix.cpp.s
 .PHONY : src/matrix.cpp.s
 
+src/tensor.obj: src/tensor.cpp.obj
+.PHONY : src/tensor.obj
+
+# target to build an object file
+src/tensor.cpp.obj:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f libs\math_lib\CMakeFiles\math_lib.dir\build.make libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj
+.PHONY : src/tensor.cpp.obj
+
+src/tensor.i: src/tensor.cpp.i
+.PHONY : src/tensor.i
+
+# target to preprocess a source file
+src/tensor.cpp.i:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f libs\math_lib\CMakeFiles\math_lib.dir\build.make libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.i
+.PHONY : src/tensor.cpp.i
+
+src/tensor.s: src/tensor.cpp.s
+.PHONY : src/tensor.s
+
+# target to generate assembly for a file
+src/tensor.cpp.s:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f libs\math_lib\CMakeFiles\math_lib.dir\build.make libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.s
+.PHONY : src/tensor.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -241,6 +265,9 @@ help:
 	@echo ... src/matrix.obj
 	@echo ... src/matrix.i
 	@echo ... src/matrix.s
+	@echo ... src/tensor.obj
+	@echo ... src/tensor.i
+	@echo ... src/tensor.s
 .PHONY : help
 
 

@@ -226,6 +226,19 @@ test_matrix/fast:
 .PHONY : test_matrix/fast
 
 #=============================================================================
+# Target rules for targets named test_tensor
+
+# Build rule for target.
+test_tensor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_tensor
+.PHONY : test_tensor
+
+# fast build rule for target.
+test_tensor/fast:
+	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tensor.dir\build.make tests/CMakeFiles/test_tensor.dir/build
+.PHONY : test_tensor/fast
+
+#=============================================================================
 # Target rules for targets named test_tokenizer_lib
 
 # Build rule for target.
@@ -378,6 +391,7 @@ help:
 	@echo ... test_math_lib
 	@echo ... test_matrix
 	@echo ... test_multi_head_attention
+	@echo ... test_tensor
 	@echo ... test_tokenizer_lib
 	@echo ... test_transformer
 	@echo ... tokenizer_lib

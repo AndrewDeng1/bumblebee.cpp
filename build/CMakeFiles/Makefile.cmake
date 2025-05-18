@@ -62,6 +62,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_math_lib.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_matrix.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_tensor.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_tokenizer_lib.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_decoder.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_decoder_layer.dir/DependInfo.cmake"

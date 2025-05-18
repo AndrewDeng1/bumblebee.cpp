@@ -7,7 +7,7 @@
 		],
 		"files" : 
 		[
-			"libs/math_lib/CMakeLists.txt"
+			"libs/transformer_lib/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -17,13 +17,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 33,
+				"line" : 43,
 				"parent" : 0
 			},
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 34,
+				"line" : 44,
 				"parent" : 0
 			}
 		]
@@ -37,7 +37,7 @@
 			"paths" : 
 			[
 				{
-					"from" : "libs/math_lib/include",
+					"from" : "libs/transformer_lib/include",
 					"to" : "."
 				}
 			],
@@ -49,16 +49,16 @@
 			"destination" : "lib",
 			"paths" : 
 			[
-				"libs/math_lib/libmath_lib.a"
+				"libs/transformer_lib/libtransformer_lib.a"
 			],
-			"targetId" : "math_lib::@6bd86666e8316c0ce536",
-			"targetIndex" : 0,
+			"targetId" : "transformer_lib::@6bc3e8c730b9e3137300",
+			"targetIndex" : 15,
 			"type" : "target"
 		}
 	],
 	"paths" : 
 	{
-		"build" : "libs/math_lib",
-		"source" : "libs/math_lib"
+		"build" : "libs/transformer_lib",
+		"source" : "libs/transformer_lib"
 	}
 }

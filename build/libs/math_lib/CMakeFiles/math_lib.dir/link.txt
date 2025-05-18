@@ -1,2 +1,2 @@
-C:\msys64\mingw64\bin\ar.exe qc libmath_lib.a CMakeFiles/math_lib.dir/src/math_lib.cpp.obj CMakeFiles/math_lib.dir/src/matrix.cpp.obj
+C:\msys64\mingw64\bin\ar.exe qc libmath_lib.a CMakeFiles/math_lib.dir/src/math_lib.cpp.obj CMakeFiles/math_lib.dir/src/matrix.cpp.obj CMakeFiles/math_lib.dir/src/tensor.cpp.obj
 C:\msys64\mingw64\bin\ranlib.exe libmath_lib.a

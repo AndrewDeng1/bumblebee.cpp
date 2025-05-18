@@ -64,7 +64,6 @@ float std_dev(const vector<float>& v){
     return sqrt(((float)1.0/v.size())*sm);
 }
 
-
 shared_ptr<Tensor> add(const shared_ptr<Tensor>& t1, const shared_ptr<Tensor>& t2) {
     // Handle broadcasting for vector-to-matrix addition
     Matrix ret;
@@ -76,7 +75,7 @@ shared_ptr<Tensor> add(const shared_ptr<Tensor>& t1, const shared_ptr<Tensor>& t
         ret = Matrix(t2->data.numRows(), t2->data.numCols());
         for (int i = 0; i < t2->data.numRows(); i++) {
             for (int j = 0; j < t2->data.numCols(); j++) {
-                ret[i][j] = t1->data[i][0] + t2->data[i][j];
+                ret[i][j] = t1->data[j][0] + t2->data[i][j];
             }
         }
     } else if (!t1_is_vector && t2_is_vector) {
@@ -84,7 +83,7 @@ shared_ptr<Tensor> add(const shared_ptr<Tensor>& t1, const shared_ptr<Tensor>& t
         ret = Matrix(t1->data.numRows(), t1->data.numCols());
         for (int i = 0; i < t1->data.numRows(); i++) {
             for (int j = 0; j < t1->data.numCols(); j++) {
-                ret[i][j] = t1->data[i][j] + t2->data[i][0];
+                ret[i][j] = t1->data[i][j] + t2->data[j][0];
             }
         }
     } else {
@@ -101,11 +100,11 @@ shared_ptr<Tensor> add(const shared_ptr<Tensor>& t1, const shared_ptr<Tensor>& t
         
         if (t1->requires_grad) {
             if (t1_is_vector) {
-                // For vector input, sum gradients across columns
+                // For vector input, sum gradients across rows
                 for (int i = 0; i < t1->grad.numRows(); i++) {
                     float sum = 0;
-                    for (int j = 0; j < ret_tensor->grad.numCols(); j++) {
-                        sum += ret_tensor->grad[i][j];
+                    for (int j = 0; j < ret_tensor->grad.numRows(); j++) {
+                        sum += ret_tensor->grad[j][i];
                     }
                     t1->grad[i][0] += sum;
                 }
@@ -116,11 +115,11 @@ shared_ptr<Tensor> add(const shared_ptr<Tensor>& t1, const shared_ptr<Tensor>& t
         
         if (t2->requires_grad) {
             if (t2_is_vector) {
-                // For vector input, sum gradients across columns
+                // For vector input, sum gradients across rows
                 for (int i = 0; i < t2->grad.numRows(); i++) {
                     float sum = 0;
-                    for (int j = 0; j < ret_tensor->grad.numCols(); j++) {
-                        sum += ret_tensor->grad[i][j];
+                    for (int j = 0; j < ret_tensor->grad.numRows(); j++) {
+                        sum += ret_tensor->grad[j][i];
                     }
                     t2->grad[i][0] += sum;
                 }
