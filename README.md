@@ -1,3 +1,3 @@
-# transformer.cpp
+# bumblebee.cpp 🐝
 
-Implementing transformer architecture from "Attention is All You Need" without any ML libraries.
+Tensor engine from scratch in C++.
