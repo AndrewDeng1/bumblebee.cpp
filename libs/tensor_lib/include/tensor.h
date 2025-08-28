@@ -41,6 +41,9 @@ class Tensor : public enable_shared_from_this<Tensor> {
         // shared_ptr<Tensor> log_softmax(int axis, bool keepdims=true);
         // shared_ptr<Tensor> negative_log_likelihood(const shared_ptr<Tensor>& y_true);
         shared_ptr<Tensor> cross_entropy(const shared_ptr<Tensor>& y_true, int axis, bool keepdims=true);
+        void xavier_uniform_initialization(shared_ptr<Tensor>& t);
+        void zero_grad();
+        void step(float learning_rate);
         void backward();
         void print();
 
@@ -84,8 +87,13 @@ shared_ptr<Tensor> relu(const shared_ptr<Tensor>& A);
 shared_ptr<Tensor> sigmoid(const shared_ptr<Tensor>& A);
 shared_ptr<Tensor> tanh(const shared_ptr<Tensor>& A);
 
+shared_ptr<Tensor> add_and_norm(const shared_ptr<Tensor>& A, const shared_ptr<Tensor>& B);
+shared_ptr<Tensor> attention(const shared_ptr<Tensor>& Q, const shared_ptr<Tensor>& K, const shared_ptr<Tensor>& V, int d_k, bool masked);
+
 // Global functions
 bool is_broadcastable(const vector<int>& A_shape, const vector<int>& B_shape, bool matmul = false);
 vector<int> get_broadcast_shape(const vector<int>& A_shape, const vector<int>& B_shape, bool matmul = false);
+
+shared_ptr<Tensor> positional_encoder(const shared_ptr<Tensor>& input_embeddings, int d_model);
 
 #endif // TENSOR_H

@@ -1,5 +1,5 @@
 #include <transformer_lib/encoder.h>
-#include <math_lib/math_lib.h>
+#include <tensor_lib/tensor.h>
 
 Encoder::Encoder(int d_model, int d_ff, int h, int d_k, int d_v, int N)
     : d_model(d_model),
@@ -18,6 +18,12 @@ shared_ptr<Tensor> Encoder::forward(const shared_ptr<Tensor>& X) const {
         curr = encoder_layers[i].forward(curr);
     }
     return curr;
+}
+
+void Encoder::zero_grad() {
+    for (auto& layer : encoder_layers) {
+        layer.zero_grad();
+    }
 }
 
 void Encoder::step(float learning_rate) {

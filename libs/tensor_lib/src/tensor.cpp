@@ -1108,6 +1108,146 @@ shared_ptr<Tensor> Tensor::softmax(int axis) {
     return result;
 }
 
+shared_ptr<Tensor> generate_mask(const vector<int>& shape){
+    if(shape.size()<2){
+        throw std::runtime_error("Tensor must have at least 2 dimensions for mask generation");
+
+    shared_ptr<Tensor> mask = make_shared<Tensor>(shape, false);
+    for(int i=0; i<mask->size(); i++){
+        int curr=i;
+        for(int j=0; j<shape.size()-2; j++){
+            curr%=mask->strides[j];
+        }
+        int row=curr;
+        int col=curr%mask->strides[mask->strides.size()-1];
+        if(row<col){
+            mask->at(i)=-std::numeric_limits<float>::infinity();
+        }
+    }
+    return mask;
+}
+
+std::shared_ptr<Tensor> attention(
+    const std::shared_ptr<Tensor>& Q,
+    const std::shared_ptr<Tensor>& K,
+    const std::shared_ptr<Tensor>& V,
+    int d_k,
+    bool masked
+) {
+    // Step 1: Compute scores = (Q * Kᵀ) / sqrt(d_k)
+    shared_ptr K_T = K->transpose(K->shape.size()-2, K->shape.size()-1);
+    shared_ptr<Tensor> scores = tensor_lib::matmul(Q, K_T)/std::sqrt(static_cast<float>(d_k));
+
+    // Step 2: Mask if necessary
+    if(masked){
+        shared_ptr<Tensor> mask = tensor_lib::generate_mask(arg->shape);
+        scores += mask;
+    }
+
+    shared_ptr<Tensor> softmax_scores = softmax(scores);  // Returns shared_ptr<Tensor>
+
+    // Step 3: Output = softmax(scores) * V
+    shared_ptr<Tensor> out = matmul(softmax_scores, V);
+
+    return out;
+}
+
+shared_ptr<Tensor> add_and_norm(const shared_ptr<Tensor>& A, const shared_ptr<Tensor>& B) {
+    shared_ptr<Tensor> result = A+B;
+    return result->norm(result->shape.size()-1, true);
+}
+
+void Tensor::zero_grad() {
+    grad=make_shared<Tensor>(shape, false);
+}
+
+void Tensor::step(float learning_rate) {
+    for(int i=0; i<size(); i++){
+        at(i)-=grad->at(i)*learning_rate;
+    }
+}
+
+void xavier_uniform_initialization(shared_ptr<Tensor>& t){
+
+    if(t->shape.size()<2){
+        throw std::runtime_error("Tensor must have at least 2 dimensions for xavier uniform initialization");
+    }
+
+    float lower=-std::sqrt(6.0f/(float)(t->shape[t->shape.size()-2]+t->shape[t->shape.size()-1]));
+    float upper=std::sqrt(6.0f/(float)(t->shape[t->shape.size()-2]+t->shape[t->shape.size()-1]));
+
+    std::random_device rd;  // Seed generator
+    std::mt19937 gen(rd()); // Mersenne Twister engine
+    std::uniform_real_distribution<float> dist(lower, upper); // Uniform range [-bound, bound]
+
+    for (int i=0; i<t->size(); i++){
+        t->at(i)=dist(gen);
+    }
+}
+
+shared_ptr<Tensor> embed(
+    const vector<vector<int>>& token_indices,  // Sequence of token indices
+    const shared_ptr<Tensor>& token_embeddings,  // Shape: (V, d_model)
+    int d_model
+) {
+    // Create output tensor
+    shared_ptr<Tensor> output = make_shared<Tensor>({token_indices.size(), }, true);
+    
+    // For each token index in the sequence, look up its embedding
+    for (int i = 0; i < token_indices.size(); ++i) {
+        int token_idx = token_indices[i];
+        // Copy the embedding for this token
+        for (int j = 0; j < d_model; ++j) {
+            output->data[i][j] = token_embeddings->data[token_idx][j];
+        }
+    }
+    
+    // Set up backward function to propagate gradients back to token embeddings
+    output->backward_fn = [token_embeddings, token_indices, d_model, output]() {
+        if (!token_embeddings->requires_grad) return;
+        
+        // For each token in the input sequence
+        for (int i = 0; i < token_indices.size(); ++i) {
+            int token_idx = token_indices[i];
+            // Accumulate gradients for this token's embedding
+            for (int j = 0; j < d_model; ++j) {
+                token_embeddings->grad[token_idx][j] += output->grad[i][j];
+            }
+        }
+    };
+    
+    // Set token_embeddings as a parent for gradient tracking
+    output->parents = {token_embeddings};
+    
+    return output;
+}
+
+shared_ptr<Tensor> positional_encoder(const shared_ptr<Tensor>& input_embeddings, int d_model) {
+    if(input_embeddings->shape.size()<2){
+        throw std::runtime_error("Tensor must have at least 2 dimensions for positional encoder");
+    }
+    
+    shared_ptr<Tensor> ret = make_shared<Tensor>(input_embeddings->shape, input_embeddings->requires_grad);
+    
+    for(int x=0; x<ret->size(); x++){
+        int curr=x;
+        for(int y=0; y<ret->shape.size()-2; y++){
+            curr%=ret->strides[y];
+        }
+        int pos=curr;
+        int i=curr%ret->strides[ret->shape.size()-2];
+
+        if(i%2==0){
+            ret->at(x)=sin(pos/powf(10000.0, (float)i/d_model));
+        } else {
+            ret->at(x)=cos(pos/powf(10000.0, (float)(i-1)/d_model));
+        }
+    }
+
+    return ret;
+}
+
+
 // shared_ptr<Tensor> Tensor::log_softmax(int axis, bool keepdims) {
 //     shared_ptr<Tensor> result = make_shared<Tensor>(shape, requires_grad);
 //     for(int i=0; i<result->size(); i++){

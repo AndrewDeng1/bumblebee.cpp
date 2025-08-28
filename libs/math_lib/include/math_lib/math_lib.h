@@ -56,7 +56,7 @@ shared_ptr<Tensor> attention(
 Matrix max(float n, const Matrix& m);
 Matrix max(const Matrix& m, float n);
 
-void xavier_uniform_initialization(Matrix& m, int d_in, int d_out);
+// void xavier_uniform_initialization(Matrix& m, int d_in, int d_out);
 
 // Embed a sequence of token indices using the embeddings tensor
 shared_ptr<Tensor> embed(

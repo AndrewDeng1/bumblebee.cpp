@@ -428,21 +428,21 @@ Matrix max(const Matrix& m, float n){
     return max(n, m);
 }
 
-void xavier_uniform_initialization(Matrix& m, int d_in, int d_out){
-    float lower=-std::sqrt(6.0f/(float)(d_in+d_out));
-    float upper=std::sqrt(6.0f/(float)(d_in+d_out));
+// void xavier_uniform_initialization(Matrix& m, int d_in, int d_out){
+//     float lower=-std::sqrt(6.0f/(float)(d_in+d_out));
+//     float upper=std::sqrt(6.0f/(float)(d_in+d_out));
 
-    std::random_device rd;  // Seed generator
-    std::mt19937 gen(rd()); // Mersenne Twister engine
-    std::uniform_real_distribution<float> dist(lower, upper); // Uniform range [-bound, bound]
+//     std::random_device rd;  // Seed generator
+//     std::mt19937 gen(rd()); // Mersenne Twister engine
+//     std::uniform_real_distribution<float> dist(lower, upper); // Uniform range [-bound, bound]
 
-    // Fill the matrix with random values
-    for (int i = 0; i < m.numRows(); ++i) {
-        for (int j = 0; j < m.numCols(); ++j) {
-            m[i][j] = dist(gen); // Sample and assign
-        }
-    }
-}
+//     // Fill the matrix with random values
+//     for (int i = 0; i < m.numRows(); ++i) {
+//         for (int j = 0; j < m.numCols(); ++j) {
+//             m[i][j] = dist(gen); // Sample and assign
+//         }
+//     }
+// }
 
 shared_ptr<Tensor> concat(const vector<shared_ptr<Tensor>>& tensors, int axis) {
     assert(axis >= 0 && axis <= 1 && "Axis must be an integer between 0 and 1 inclusive.");
