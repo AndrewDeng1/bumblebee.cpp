@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 3.10)
 set(MATH_LIB_SOURCES
     src/math_lib.cpp
     src/matrix.cpp
+    src/tensor.cpp
 )
 
 # Create library

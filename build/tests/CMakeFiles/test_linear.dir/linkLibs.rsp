@@ -1,1 +1,1 @@
- ../libs/math_lib/libmath_lib.a ../libs/transformer_lib/libtransformer_lib.a ../libs/math_lib/libmath_lib.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ ../libs/math_lib/libmath_lib.a ../libs/transformer_lib/libtransformer_lib.a ../libs/tokenizer_lib/libtokenizer_lib.a ../libs/math_lib/libmath_lib.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

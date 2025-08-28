@@ -3,7 +3,12 @@
 
 // Include all headers in "math_lib" folder
 #include <math_lib/matrix.h>
+#include <math_lib/tensor.h>
 #include <cmath>
+#include <random>
+#include <vector>
+#include <unordered_map>
+#include <string>
 
 namespace math_lib {
 
@@ -24,18 +29,41 @@ float mean(const vector<float>& v);
 
 float std_dev(const vector<float>& v);
 
-Matrix normalize(const Matrix& m, const int axis=0);  // test
+shared_ptr<Tensor> add(const shared_ptr<Tensor>& t1, const shared_ptr<Tensor>& t2);
 
-Matrix softmax(const Matrix& m, const int axis=0);  // test
+shared_ptr<Tensor> matmul(const shared_ptr<Tensor>& A, const shared_ptr<Tensor>& B);
 
-Matrix positional_encoder(const Matrix input_embeddings, int d_model);  // test
+shared_ptr<Tensor> normalize(const shared_ptr<Tensor>& x, float epsilon=1e-5);
 
-Matrix attention(const Matrix& Q, const Matrix& K, const Matrix& V, int d_k, bool masked=false);  // test
+shared_ptr<Tensor> relu(const shared_ptr<Tensor>& x);
 
-Matrix add_and_norm(const Matrix& A, const Matrix& B);
+shared_ptr<Tensor> softmax(const shared_ptr<Tensor>& x, float epsilon=1e-5);
 
-Matrix max(float n, const Matrix& m);  // test
-Matrix max(const Matrix& m, float n);  // test
+Matrix positional_encoder(const Matrix input_embeddings, int d_model);
+
+shared_ptr<Tensor> add_and_norm(const shared_ptr<Tensor>& A, const shared_ptr<Tensor>& B);
+
+shared_ptr<Tensor> concat(const vector<shared_ptr<Tensor>>& tensors, int axis);
+
+shared_ptr<Tensor> attention(
+    const shared_ptr<Tensor>& Q,
+    const shared_ptr<Tensor>& K,
+    const shared_ptr<Tensor>& V,
+    int d_k,
+    bool masked = false
+);
+
+Matrix max(float n, const Matrix& m);
+Matrix max(const Matrix& m, float n);
+
+// void xavier_uniform_initialization(Matrix& m, int d_in, int d_out);
+
+// Embed a sequence of token indices using the embeddings tensor
+shared_ptr<Tensor> embed(
+    const vector<int>& token_indices,  // Sequence of token indices
+    const shared_ptr<Tensor>& token_embeddings,  // Shape: (V, d_model)
+    int d_model
+);
 }
 
 

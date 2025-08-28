@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/src/math_lib.cpp" "libs/math_lib/CMakeFiles/math_lib.dir/src/math_lib.cpp.obj" "gcc" "libs/math_lib/CMakeFiles/math_lib.dir/src/math_lib.cpp.obj.d"
   "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/src/matrix.cpp" "libs/math_lib/CMakeFiles/math_lib.dir/src/matrix.cpp.obj" "gcc" "libs/math_lib/CMakeFiles/math_lib.dir/src/matrix.cpp.obj.d"
+  "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/src/tensor.cpp" "libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj" "gcc" "libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

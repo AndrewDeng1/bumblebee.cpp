@@ -94,6 +94,7 @@ tests/test_linear.exe: tests/CMakeFiles/test_linear.dir/unit/transformer_lib/tes
 tests/test_linear.exe: tests/CMakeFiles/test_linear.dir/build.make
 tests/test_linear.exe: libs/math_lib/libmath_lib.a
 tests/test_linear.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_linear.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_linear.exe: libs/math_lib/libmath_lib.a
 tests/test_linear.exe: tests/CMakeFiles/test_linear.dir/linkLibs.rsp
 tests/test_linear.exe: tests/CMakeFiles/test_linear.dir/objects1.rsp

@@ -189,6 +189,34 @@ test_matrix/fast:
 .PHONY : test_matrix/fast
 
 # Convenience name for target.
+tests/CMakeFiles/test_tensor.dir/rule:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_tensor.dir/rule
+.PHONY : tests/CMakeFiles/test_tensor.dir/rule
+
+# Convenience name for target.
+test_tensor: tests/CMakeFiles/test_tensor.dir/rule
+.PHONY : test_tensor
+
+# fast build rule for target.
+test_tensor/fast:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tensor.dir\build.make tests/CMakeFiles/test_tensor.dir/build
+.PHONY : test_tensor/fast
+
+# Convenience name for target.
+tests/CMakeFiles/test_tokenizer_lib.dir/rule:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_tokenizer_lib.dir/rule
+.PHONY : tests/CMakeFiles/test_tokenizer_lib.dir/rule
+
+# Convenience name for target.
+test_tokenizer_lib: tests/CMakeFiles/test_tokenizer_lib.dir/rule
+.PHONY : test_tokenizer_lib
+
+# fast build rule for target.
+test_tokenizer_lib/fast:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/build
+.PHONY : test_tokenizer_lib/fast
+
+# Convenience name for target.
 tests/CMakeFiles/test_decoder.dir/rule:
 	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/test_decoder.dir/rule
 .PHONY : tests/CMakeFiles/test_decoder.dir/rule
@@ -361,6 +389,54 @@ unit/math_lib/test_matrix.s: unit/math_lib/test_matrix.cpp.s
 unit/math_lib/test_matrix.cpp.s:
 	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_matrix.dir\build.make tests/CMakeFiles/test_matrix.dir/unit/math_lib/test_matrix.cpp.s
 .PHONY : unit/math_lib/test_matrix.cpp.s
+
+unit/math_lib/test_tensor.obj: unit/math_lib/test_tensor.cpp.obj
+.PHONY : unit/math_lib/test_tensor.obj
+
+# target to build an object file
+unit/math_lib/test_tensor.cpp.obj:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tensor.dir\build.make tests/CMakeFiles/test_tensor.dir/unit/math_lib/test_tensor.cpp.obj
+.PHONY : unit/math_lib/test_tensor.cpp.obj
+
+unit/math_lib/test_tensor.i: unit/math_lib/test_tensor.cpp.i
+.PHONY : unit/math_lib/test_tensor.i
+
+# target to preprocess a source file
+unit/math_lib/test_tensor.cpp.i:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tensor.dir\build.make tests/CMakeFiles/test_tensor.dir/unit/math_lib/test_tensor.cpp.i
+.PHONY : unit/math_lib/test_tensor.cpp.i
+
+unit/math_lib/test_tensor.s: unit/math_lib/test_tensor.cpp.s
+.PHONY : unit/math_lib/test_tensor.s
+
+# target to generate assembly for a file
+unit/math_lib/test_tensor.cpp.s:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tensor.dir\build.make tests/CMakeFiles/test_tensor.dir/unit/math_lib/test_tensor.cpp.s
+.PHONY : unit/math_lib/test_tensor.cpp.s
+
+unit/tokenizer_lib/test_tokenizer_lib.obj: unit/tokenizer_lib/test_tokenizer_lib.cpp.obj
+.PHONY : unit/tokenizer_lib/test_tokenizer_lib.obj
+
+# target to build an object file
+unit/tokenizer_lib/test_tokenizer_lib.cpp.obj:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/unit/tokenizer_lib/test_tokenizer_lib.cpp.obj
+.PHONY : unit/tokenizer_lib/test_tokenizer_lib.cpp.obj
+
+unit/tokenizer_lib/test_tokenizer_lib.i: unit/tokenizer_lib/test_tokenizer_lib.cpp.i
+.PHONY : unit/tokenizer_lib/test_tokenizer_lib.i
+
+# target to preprocess a source file
+unit/tokenizer_lib/test_tokenizer_lib.cpp.i:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/unit/tokenizer_lib/test_tokenizer_lib.cpp.i
+.PHONY : unit/tokenizer_lib/test_tokenizer_lib.cpp.i
+
+unit/tokenizer_lib/test_tokenizer_lib.s: unit/tokenizer_lib/test_tokenizer_lib.cpp.s
+.PHONY : unit/tokenizer_lib/test_tokenizer_lib.s
+
+# target to generate assembly for a file
+unit/tokenizer_lib/test_tokenizer_lib.cpp.s:
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test_tokenizer_lib.dir\build.make tests/CMakeFiles/test_tokenizer_lib.dir/unit/tokenizer_lib/test_tokenizer_lib.cpp.s
+.PHONY : unit/tokenizer_lib/test_tokenizer_lib.cpp.s
 
 unit/transformer_lib/test_decoder.obj: unit/transformer_lib/test_decoder.cpp.obj
 .PHONY : unit/transformer_lib/test_decoder.obj
@@ -600,6 +676,8 @@ help:
 	@echo ... test_math_lib
 	@echo ... test_matrix
 	@echo ... test_multi_head_attention
+	@echo ... test_tensor
+	@echo ... test_tokenizer_lib
 	@echo ... test_transformer
 	@echo ... unit/math_lib/test_math_lib.obj
 	@echo ... unit/math_lib/test_math_lib.i
@@ -607,6 +685,12 @@ help:
 	@echo ... unit/math_lib/test_matrix.obj
 	@echo ... unit/math_lib/test_matrix.i
 	@echo ... unit/math_lib/test_matrix.s
+	@echo ... unit/math_lib/test_tensor.obj
+	@echo ... unit/math_lib/test_tensor.i
+	@echo ... unit/math_lib/test_tensor.s
+	@echo ... unit/tokenizer_lib/test_tokenizer_lib.obj
+	@echo ... unit/tokenizer_lib/test_tokenizer_lib.i
+	@echo ... unit/tokenizer_lib/test_tokenizer_lib.s
 	@echo ... unit/transformer_lib/test_decoder.obj
 	@echo ... unit/transformer_lib/test_decoder.i
 	@echo ... unit/transformer_lib/test_decoder.s

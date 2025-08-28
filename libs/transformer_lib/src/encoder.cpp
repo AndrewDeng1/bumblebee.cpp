@@ -1,4 +1,5 @@
 #include <transformer_lib/encoder.h>
+#include <tensor_lib/tensor.h>
 
 Encoder::Encoder(int d_model, int d_ff, int h, int d_k, int d_v, int N)
     : d_model(d_model),
@@ -11,13 +12,23 @@ Encoder::Encoder(int d_model, int d_ff, int h, int d_k, int d_v, int N)
     // Empty body
 }
 
-Matrix Encoder::forward(const Matrix& X) const {
-    
-    Matrix curr=X;
-
-    for(int i=0; i<encoder_layers.size(); i++){
-        curr=encoder_layers[i].forward(curr);
+shared_ptr<Tensor> Encoder::forward(const shared_ptr<Tensor>& X) const {
+    shared_ptr<Tensor> curr = X;
+    for (int i = 0; i < encoder_layers.size(); i++) {
+        curr = encoder_layers[i].forward(curr);
     }
-    
     return curr;
+}
+
+void Encoder::zero_grad() {
+    for (auto& layer : encoder_layers) {
+        layer.zero_grad();
+    }
+}
+
+void Encoder::step(float learning_rate) {
+    // Update weights in each encoder layer
+    for (auto& layer : encoder_layers) {
+        layer.step(learning_rate);
+    }
 }

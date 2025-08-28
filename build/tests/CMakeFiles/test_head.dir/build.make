@@ -94,6 +94,7 @@ tests/test_head.exe: tests/CMakeFiles/test_head.dir/unit/transformer_lib/test_he
 tests/test_head.exe: tests/CMakeFiles/test_head.dir/build.make
 tests/test_head.exe: libs/math_lib/libmath_lib.a
 tests/test_head.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_head.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_head.exe: libs/math_lib/libmath_lib.a
 tests/test_head.exe: tests/CMakeFiles/test_head.dir/linkLibs.rsp
 tests/test_head.exe: tests/CMakeFiles/test_head.dir/objects1.rsp

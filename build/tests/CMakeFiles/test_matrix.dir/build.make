@@ -94,6 +94,7 @@ tests/test_matrix.exe: tests/CMakeFiles/test_matrix.dir/unit/math_lib/test_matri
 tests/test_matrix.exe: tests/CMakeFiles/test_matrix.dir/build.make
 tests/test_matrix.exe: libs/math_lib/libmath_lib.a
 tests/test_matrix.exe: libs/transformer_lib/libtransformer_lib.a
+tests/test_matrix.exe: libs/tokenizer_lib/libtokenizer_lib.a
 tests/test_matrix.exe: libs/math_lib/libmath_lib.a
 tests/test_matrix.exe: tests/CMakeFiles/test_matrix.dir/linkLibs.rsp
 tests/test_matrix.exe: tests/CMakeFiles/test_matrix.dir/objects1.rsp

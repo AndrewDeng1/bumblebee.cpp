@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Library subdirectories
 add_subdirectory(libs/math_lib)
 add_subdirectory(libs/transformer_lib)
+add_subdirectory(libs/tokenizer_lib)
 
 # Tests (optional)
 option(BUILD_TESTS "Build test executables" ON)

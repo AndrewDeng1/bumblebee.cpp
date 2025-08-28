@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <memory>
 #include <math_lib/math_lib.h>
 
 using namespace std;
@@ -13,18 +14,25 @@ using namespace std;
 class Linear {
     
     public:
-
-        // Declare signature of constructor methods
+        // Constructor
         Linear(int d_model, int V);
-        Matrix forward(const Matrix& X) const;
+        
+        // Forward pass
+        shared_ptr<Tensor> forward(const shared_ptr<Tensor>& X) const;
+        
+        // Zero gradients
+        void zero_grad();
+        
+        // Update weights
+        void step(float learning_rate);
     
     private:
-
         int d_model;
         int V;
 
-        Matrix W;
-        vector<float>b;
+        // Weights and bias as tensors
+        shared_ptr<Tensor> W;
+        shared_ptr<Tensor> b;
 };
 
 #endif // LINEAR_LAYER_H

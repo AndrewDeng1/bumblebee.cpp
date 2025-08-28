@@ -98,19 +98,36 @@ libs/math_lib/CMakeFiles/math_lib.dir/src/matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/math_lib.dir/src/matrix.cpp.s"
 	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\math_lib && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\math_lib\src\matrix.cpp -o CMakeFiles\math_lib.dir\src\matrix.cpp.s
 
+libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj: libs/math_lib/CMakeFiles/math_lib.dir/flags.make
+libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj: libs/math_lib/CMakeFiles/math_lib.dir/includes_CXX.rsp
+libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj: C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/src/tensor.cpp
+libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj: libs/math_lib/CMakeFiles/math_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj"
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\math_lib && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj -MF CMakeFiles\math_lib.dir\src\tensor.cpp.obj.d -o CMakeFiles\math_lib.dir\src\tensor.cpp.obj -c C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\math_lib\src\tensor.cpp
+
+libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/math_lib.dir/src/tensor.cpp.i"
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\math_lib && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\math_lib\src\tensor.cpp > CMakeFiles\math_lib.dir\src\tensor.cpp.i
+
+libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/math_lib.dir/src/tensor.cpp.s"
+	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\math_lib && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\andar\Waterloo\SideProjects\transformer.cpp\libs\math_lib\src\tensor.cpp -o CMakeFiles\math_lib.dir\src\tensor.cpp.s
+
 # Object files for target math_lib
 math_lib_OBJECTS = \
 "CMakeFiles/math_lib.dir/src/math_lib.cpp.obj" \
-"CMakeFiles/math_lib.dir/src/matrix.cpp.obj"
+"CMakeFiles/math_lib.dir/src/matrix.cpp.obj" \
+"CMakeFiles/math_lib.dir/src/tensor.cpp.obj"
 
 # External object files for target math_lib
 math_lib_EXTERNAL_OBJECTS =
 
 libs/math_lib/libmath_lib.a: libs/math_lib/CMakeFiles/math_lib.dir/src/math_lib.cpp.obj
 libs/math_lib/libmath_lib.a: libs/math_lib/CMakeFiles/math_lib.dir/src/matrix.cpp.obj
+libs/math_lib/libmath_lib.a: libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj
 libs/math_lib/libmath_lib.a: libs/math_lib/CMakeFiles/math_lib.dir/build.make
 libs/math_lib/libmath_lib.a: libs/math_lib/CMakeFiles/math_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libmath_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libmath_lib.a"
 	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\math_lib && $(CMAKE_COMMAND) -P CMakeFiles\math_lib.dir\cmake_clean_target.cmake
 	cd /d C:\Users\andar\Waterloo\SideProjects\transformer.cpp\build\libs\math_lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\math_lib.dir\link.txt --verbose=$(VERBOSE)
 

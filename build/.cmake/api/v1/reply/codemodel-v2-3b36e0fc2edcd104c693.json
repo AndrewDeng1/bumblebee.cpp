@@ -1,0 +1,263 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "libs/math_lib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.math_lib-Debug-6d984aa76598dcd3b01e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs/math_lib",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "libs/transformer_lib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.transformer_lib-Debug-6e0793aab57e8aa958de.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs/transformer_lib",
+					"targetIndexes" : 
+					[
+						15
+					]
+				},
+				{
+					"build" : "libs/tokenizer_lib",
+					"jsonFile" : "directory-libs.tokenizer_lib-Debug-4df1acc86a07e16422b7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs/tokenizer_lib",
+					"targetIndexes" : 
+					[
+						14
+					]
+				},
+				{
+					"build" : "tests",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-tests-Debug-700f106c99c4b6ec0b26.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tests",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "TransformerProject",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "math_lib::@6bd86666e8316c0ce536",
+					"jsonFile" : "target-math_lib-Debug-a500ac9c2861802a2570.json",
+					"name" : "math_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_decoder::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_decoder-Debug-acd3e7e3b0a94e80cde3.json",
+					"name" : "test_decoder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_decoder_layer::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_decoder_layer-Debug-9fef12546053a61377e5.json",
+					"name" : "test_decoder_layer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_encoder::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_encoder-Debug-661ced52da8ad3e382b9.json",
+					"name" : "test_encoder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_encoder_layer::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_encoder_layer-Debug-f09f08bd5ac58e59720e.json",
+					"name" : "test_encoder_layer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_feed_forward::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_feed_forward-Debug-2d21791a151372338a4f.json",
+					"name" : "test_feed_forward",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_head::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_head-Debug-3c41515ac953cd281359.json",
+					"name" : "test_head",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_linear::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_linear-Debug-a2ca73217a1c21b3427e.json",
+					"name" : "test_linear",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_math_lib::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_math_lib-Debug-cf270118dc9351c1720a.json",
+					"name" : "test_math_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_matrix::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_matrix-Debug-19e654a3207fe587822b.json",
+					"name" : "test_matrix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_multi_head_attention::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_multi_head_attention-Debug-03e826490f404ed45e51.json",
+					"name" : "test_multi_head_attention",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_tensor::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_tensor-Debug-84b8c88fc318ed120aaa.json",
+					"name" : "test_tensor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_tokenizer_lib::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_tokenizer_lib-Debug-dae3f6781f1294b4eb01.json",
+					"name" : "test_tokenizer_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_transformer::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-test_transformer-Debug-852832f0bbb0cf00938b.json",
+					"name" : "test_transformer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "tokenizer_lib::@91aca2a4f4c44b0e3ef3",
+					"jsonFile" : "target-tokenizer_lib-Debug-7a7c19be3d9bb6ca5f1a.json",
+					"name" : "tokenizer_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "transformer_lib::@6bc3e8c730b9e3137300",
+					"jsonFile" : "target-transformer_lib-Debug-add3e22fda11df4bef73.json",
+					"name" : "transformer_lib",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build",
+		"source" : "C:/Users/andar/Waterloo/SideProjects/transformer.cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

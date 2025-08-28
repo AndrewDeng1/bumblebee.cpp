@@ -2,6 +2,7 @@
 file(GLOB TEST_SOURCES 
     "unit/math_lib/*.cpp"
     "unit/transformer_lib/*.cpp"
+    "unit/tokenizer_lib/*.cpp"
 )
 
 foreach(test_src ${TEST_SOURCES})
@@ -16,6 +17,7 @@ foreach(test_src ${TEST_SOURCES})
         PRIVATE 
             math_lib 
             transformer_lib
+            tokenizer_lib
     )
     
     # Install to bin/ (optional)

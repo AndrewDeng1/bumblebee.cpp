@@ -12,6 +12,12 @@
   "output": "libs/math_lib/CMakeFiles/math_lib.dir/src/matrix.cpp.obj"
 },
 {
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/math_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/math_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\math_lib.dir\\src\\tensor.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\math_lib\\src\\tensor.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/math_lib/src/tensor.cpp",
+  "output": "libs/math_lib/CMakeFiles/math_lib.dir/src/tensor.cpp.obj"
+},
+{
   "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/transformer_lib",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/transformer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\transformer_lib.dir\\src\\decoder.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\transformer_lib\\src\\decoder.cpp",
   "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/transformer_lib/src/decoder.cpp",
@@ -66,6 +72,12 @@
   "output": "libs/transformer_lib/CMakeFiles/transformer_lib.dir/src/transformer.cpp.obj"
 },
 {
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/libs/tokenizer_lib",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/tokenizer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\tokenizer_lib.dir\\src\\tokenizer.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\libs\\tokenizer_lib\\src\\tokenizer.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/libs/tokenizer_lib/src/tokenizer.cpp",
+  "output": "libs/tokenizer_lib/CMakeFiles/tokenizer_lib.dir/src/tokenizer.cpp.obj"
+},
+{
   "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_math_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_math_lib.dir\\unit\\math_lib\\test_math_lib.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\math_lib\\test_math_lib.cpp",
   "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/math_lib/test_math_lib.cpp",
@@ -76,6 +88,18 @@
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_matrix.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_matrix.dir\\unit\\math_lib\\test_matrix.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\math_lib\\test_matrix.cpp",
   "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/math_lib/test_matrix.cpp",
   "output": "tests/CMakeFiles/test_matrix.dir/unit/math_lib/test_matrix.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_tensor.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_tensor.dir\\unit\\math_lib\\test_tensor.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\math_lib\\test_tensor.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/math_lib/test_tensor.cpp",
+  "output": "tests/CMakeFiles/test_tensor.dir/unit/math_lib/test_tensor.cpp.obj"
+},
+{
+  "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/test_tokenizer_lib.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test_tokenizer_lib.dir\\unit\\tokenizer_lib\\test_tokenizer_lib.cpp.obj -c C:\\Users\\andar\\Waterloo\\SideProjects\\transformer.cpp\\tests\\unit\\tokenizer_lib\\test_tokenizer_lib.cpp",
+  "file": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/tests/unit/tokenizer_lib/test_tokenizer_lib.cpp",
+  "output": "tests/CMakeFiles/test_tokenizer_lib.dir/unit/tokenizer_lib/test_tokenizer_lib.cpp.obj"
 },
 {
   "directory": "C:/Users/andar/Waterloo/SideProjects/transformer.cpp/build/tests",
